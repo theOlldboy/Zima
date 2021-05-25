@@ -123,7 +123,7 @@
                   <p class="paragrafoLogin"> Login </p> 
                   <input type="text" placeholder="Usuário" name="" size="30"> <br/>
                   <input type="password" placeholder="Senha" name="" size="30"> <br/> 
-                  <a href="#" class="textoLinksAlternativos"> Não possui uma conta ? Crie já! </a>  <br/>
+                  <a href="formCadastroClientes.jsp" class="textoLinksAlternativos"> Não possui uma conta ? Crie já! </a>  <br/>
                   <a href="#" class="textoLinksAlternativos"> Esqueceu sua senha ? Clique Aqui </a> 
                   <button type="submit" class="botaoLogin"> <span class="botaoTexto"> Entrar </span> </button>
                 </div>
