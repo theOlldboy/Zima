@@ -29,9 +29,9 @@
             
             .fundoJumbotron {
                 background-color:#798b52;
-;              margin-left: 350px;
+                margin-left: 350px;
             }
-        
+ 
             .jumbotromMeu {
                 background-color:#798b52;
                 size: 450px;
@@ -45,6 +45,7 @@
             input {
                 border-radius: 15px;
                 padding:2px;
+
                 display: inline-block;
             }
             
@@ -112,6 +113,14 @@
                   displayAtualFinanceiro.style.display = "none";
                 }
             }
+
+            }
+            
+        </style>
+        
+        <script>
+            //Meus códigos
+           
            
             //Códigos feitos pela ViaCEP
             function limpa_formulário_cep() {
@@ -188,6 +197,7 @@
         <div class="jumbotron jumbotron-fluid jumbotromMeu">
             <div class="container fundoJumbotron">
                 <form action="" method="POST">
+
                     <h1 class="fonte"> Cadastro  </h1> <br/>
                     <h2 class="fonte"> Dados Pessoais <button type="button" class="btn btn-outline-secondary botaoEsconder" onclick="esconderMostrarDadosPessoais()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
@@ -250,6 +260,49 @@
                     </div>
                     <br/>
                    
+
+                    <h1 class="fonte"> Cadastro </h1> <br/>
+                    <div id="DadosPessoais" class="divSecaoFormulario fonte">
+                        <h2 class="titulo"> Dados Pessoais </h2>
+                        <p> Nome </p>
+                        <input type="text" placeholder="Nome" size="100" maxlength="60"> <br/>
+                        <p> CPF </p>
+                        <input type="text" placeholder="CPF" maxlength="11"> <br/>
+                        <p> Telefone </p>
+                        <input type="text" placeholder="Telefone"> <br/>
+                        <p> E-mail </p>
+                        <input type="text" placeholder="E-mail" maxlength="60" size="100"> <br/>
+                    </div>
+                    <div id="DadosFinanceiros" class="divSecaoFormulario fonte">
+                        <h2 class="titulo"> Dados Financeiros </h2>
+                        <p> Número do Cartão </p>
+                        <input type="text" placeholder="Número do cartão"> <br/>
+                        <p> Código de verificação </p>
+                        <input type="text" placeholder="Código de verificação"> <br/>
+                        <p>  Titular do cartão </p>
+                        <input type="text" placeholder="Titular do cartão"> <br/>
+                        <p> Data de validade </p>
+                        <input type="text" placeholder="Data de validade"> <br/>
+                    </div>
+                        <h2 class="fonte" onclick="esconderDivEndereco()"> Endereço </h2>
+                    <div id="endereco" class="divSecaoFormulario fonte" >
+                            <p> CEP </p>
+                            <input type="text" placeholder="CEP" id="cep" onblur="pesquisacep(this.value)"> <br/>
+                            <p> Rua </p>
+                            <input type="text" placeholder="Rua" id="rua"> <br/>
+                            <p> Bairro </p>
+                            <input type="text" placeholder="Bairro" id="bairro"> <br/>
+                            <p> Cidade </p>
+                            <input type="text" placeholder="Cidade" id="cidade"> <br/>
+                            <p> UF </p>
+                            <input type="text" placeholder="Estado" id="uf"> <br/>
+                            <p> Número </p>
+                            <input type="text" placeholder="Número"> <br/>
+                            <p> Complemento </p>
+                            <input type="text" placeholder="Complemento"> <br/>
+                    </div>
+                    <button type="submit"> Cadastrar <button>
+
                 </form>
             </div>
         </div>
