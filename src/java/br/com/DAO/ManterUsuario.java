@@ -10,5 +10,5 @@ package br.com.DAO;
  * @author Mathe
  */
 public class ManterUsuario {
-    
+
 }

@@ -10,19 +10,21 @@ package br.com.entidade;
  * @author Mathe
  */
 public class Usuario {
-    
-    private int id;
-    private String nome;
-    private String cpf;
-    private String telefone;
-    private String email;
-    
-    public int getId() {
-        return id;
+
+    public int getCodigo() {
+        return codigo;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public int getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
     }
 
     public String getNome() {
@@ -41,14 +43,6 @@ public class Usuario {
         this.cpf = cpf;
     }
 
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -57,4 +51,17 @@ public class Usuario {
         this.email = email;
     }
 
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+    private int codigo;
+    private int tipo;
+    private String nome;
+    private String cpf;
+    private String email;
+    private String telefone;    
 }

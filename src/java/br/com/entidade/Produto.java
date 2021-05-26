@@ -19,6 +19,14 @@ public class Produto {
         this.codigo = codigo;
     }
 
+    public int getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
+    }
+
     public String getTitulo() {
         return titulo;
     }
@@ -35,15 +43,16 @@ public class Produto {
         this.descricao = descricao;
     }
 
-    public int getTipo() {
-        return tipo;
+    public double getPreco() {
+        return preco;
     }
 
-    public void setTipo(int tipo) {
-        this.tipo = tipo;
+    public void setPreco(double preco) {
+        this.preco = preco;
     }
     private int codigo;
+    private int tipo;
     private String titulo;
     private String descricao;
-    private int tipo;
+    private double preco;
 }

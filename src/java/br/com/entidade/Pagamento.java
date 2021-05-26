@@ -11,13 +11,11 @@ import java.sql.Date;
  *
  * @author Mathe
  */
-public class Pedido {
+public class Pagamento {
     private int codigo;
-    private int codigoItems;
+    private int forma;
     private int status;
-    private double valor;
-    private Date data;
-    private String localizacao;
+    private Date data;    
 
     public int getCodigo() {
         return codigo;
@@ -27,12 +25,12 @@ public class Pedido {
         this.codigo = codigo;
     }
 
-    public int getCodigoItems() {
-        return codigoItems;
+    public int getForma() {
+        return forma;
     }
 
-    public void setCodigoItems(int codigoItems) {
-        this.codigoItems = codigoItems;
+    public void setForma(int forma) {
+        this.forma = forma;
     }
 
     public int getStatus() {
@@ -43,27 +41,11 @@ public class Pedido {
         this.status = status;
     }
 
-    public double getValor() {
-        return valor;
-    }
-
-    public void setValor(double valor) {
-        this.valor = valor;
-    }
-
     public Date getData() {
         return data;
     }
 
     public void setData(Date data) {
         this.data = data;
-    }
-
-    public String getLocalizacao() {
-        return localizacao;
-    }
-
-    public void setLocalizacao(String localizacao) {
-        this.localizacao = localizacao;
     }
 }
