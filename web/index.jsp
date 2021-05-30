@@ -11,13 +11,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" rel="stylesheet">
+        
         <style>
             body {
                 margin: 0;
                 background-color: #798b52;
             }
 
-            .logo {
+            .logoAbaixo {
                 display: block;
                 position: relative;
                 left: 100px;
@@ -102,17 +103,18 @@
             .textoLinksAlternativos:hover {
                 text-decoration:underline;
             }
+            
         </style>
     </head>
+    <%@include file="MenuPrincipal.jsp"%> 
     <body> 
-        
         <div class="demonstracao">
-            <span class="imgProd"> <img src="sanduiche1.jpg" height="200" width="385"></span><span class="imgProd"><img src="sanduiche2.jpg" height="200" width="385"> </span><span class="imgProd"><img src="sanduiche3.jpg" height="200" width="385"> </span><span class="imgProd"><img src="sanduiche4.jpg" height="200" width="388"> </span>
+            <span class="imgProd"> <img src="sanduiche1.jpg" height="200" width="395"></span><span class="imgProd"><img src="sanduiche2.jpg" height="200" width="395"> </span><span class="imgProd"><img src="sanduiche3.jpg" height="200" width="395"> </span><span class="imgProd"><img src="sanduiche4.jpg" height="200" width="398"> </span>
         </div>
         <div class="titulo"> <br/>
-             <div class="logo">
-            <img src="Logo.png" width="150px" height="60px">
-        </div> <br/>
+            <div class="logoAbaixo">
+                <img src="Logo.png" width="150px" height="60px">
+            </div> <br/>
             <p class="paragrafo">
                 "Venha conhecer o primeiro restaurante isnpirado na culinária cubana de Brasília"
             </p>
@@ -128,6 +130,7 @@
                   <button type="submit" class="botaoLogin"> <span class="botaoTexto"> Entrar </span> </button>
                 </div>
             </form>
-        </div>
+        </div> <br/>
+        
     </body>
 </html>

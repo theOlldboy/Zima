@@ -10,7 +10,27 @@ package br.com.entidade;
  * @author Mathe
  */
 public class Endereco {
+    private int codigo;
+    private int id_clienteEndereco;
 
+    
+    private String cep;
+    private String cidade;
+    private String uf;
+    private String bairro;
+    private String rua;
+    private String numero;
+    private String complemento;
+    private String pRef;
+    
+    public int getId_cliente() {
+        return id_clienteEndereco;
+    }
+
+    public void setId_cliente(int id_cliente) {
+        this.id_clienteEndereco = id_cliente;
+    }
+    
     public int getCodigo() {
         return codigo;
     }
@@ -82,13 +102,5 @@ public class Endereco {
     public void setpRef(String pRef) {
         this.pRef = pRef;
     }
-    private int codigo;
-    private String cep;
-    private String cidade;
-    private String uf;
-    private String bairro;
-    private String rua;
-    private String numero;
-    private String complemento;
-    private String pRef;    
+        
 }

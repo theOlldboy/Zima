@@ -10,7 +10,23 @@ package br.com.entidade;
  * @author Mathe
  */
 public class Usuario {
+    
+    private int codigo;
+    private int tipo;
+    private String nome;
+    private String cpf;
+    private String email;
+    private String telefone;
+    private String senha;
 
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+    
     public int getCodigo() {
         return codigo;
     }
@@ -58,10 +74,13 @@ public class Usuario {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
-    private int codigo;
-    private int tipo;
-    private String nome;
-    private String cpf;
-    private String email;
-    private String telefone;    
+    
+    public void criarUsuarioCliente() {
+        this.tipo = 0;
+    }
+    
+    public void criarUsuarioAdmin() {
+        this.tipo = 1;
+    }
+    
 }

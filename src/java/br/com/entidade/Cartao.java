@@ -10,7 +10,20 @@ package br.com.entidade;
  * @author Mathe
  */
 public class Cartao {
+    private int id;
+    private String numero;
+    private String titular;
+    private String dataValidade;
+    private String cvv; 
+    private int id_clienteCartao;
 
+    public int getId_clienteCartao() {
+        return id_clienteCartao;
+    }
+
+    public void setId_clienteCartao(int id_clienteCartao) {
+        this.id_clienteCartao = id_clienteCartao;
+    }
     public int getId() {
         return id;
     }
@@ -50,9 +63,5 @@ public class Cartao {
     public void setCvv(String cvv) {
         this.cvv = cvv;
     }
-    private int id;
-    private String numero;
-    private String titular;
-    private String dataValidade;
-    private String cvv;    
+      
 }
