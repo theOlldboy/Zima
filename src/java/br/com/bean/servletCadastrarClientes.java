@@ -5,11 +5,14 @@
  */
 package br.com.bean;
 
+import br.com.DAO.ManterUsuario;
 import br.com.entidade.Cartao;
 import br.com.entidade.Endereco;
 import br.com.entidade.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,7 +34,7 @@ public class servletCadastrarClientes extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, Exception {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
            //Capturando dados da seção "Dados Pessoais"
@@ -39,6 +42,7 @@ public class servletCadastrarClientes extends HttpServlet {
            String cpf = request.getParameter("cpf");
            String email = request.getParameter("emailCliente");
            String senha = request.getParameter("senha");
+           String telefone = request.getParameter("telefone");
            
            //Capturando dados da seção "Dados do cartão"
            String numeroCartao = request.getParameter("numeroCartao");
@@ -57,10 +61,38 @@ public class servletCadastrarClientes extends HttpServlet {
            String pontoReferencia = request.getParameter("pontoReferencia");
            
            Usuario cliente = new Usuario();
+           ManterUsuario manterCliente = new ManterUsuario();
+           
            Cartao cartaoCliente = new Cartao();
            Endereco enderecoCliente = new Endereco();
            
-           cliente.criarUsuarioCliente(); // Esse método define, no banco, se o tipo do usuário 
+           cliente.criarUsuarioCliente(); // Esse método define, no banco, o tipo do usuário 
+           cliente.setNome(nome_cliente);
+           cliente.setSenha(senha);
+           cliente.setEmail(email);
+           cliente.setCpf(cpf);
+           cliente.setTelefone(telefone);
+           
+           manterCliente.inserirDadosPessoaisUsuarioCliente(cliente);
+           
+           
+           cartaoCliente.setCvv(codigoVerificacao);
+           cartaoCliente.setNumero(numeroCartao);
+           cartaoCliente.setDataValidade(dataValidade);
+           cartaoCliente.setTitular(titularCartao);
+           
+           manterCliente.inserirDadosCartaoUsuarioCliente(cartaoCliente);
+           
+           enderecoCliente.setBairro(bairro);
+           enderecoCliente.setCep(cep);
+           enderecoCliente.setCidade(cidade);
+           enderecoCliente.setComplemento(complemento);
+           enderecoCliente.setNumero(numeroEndereco);
+           enderecoCliente.setRua(rua);
+           enderecoCliente.setUf(uf);
+           enderecoCliente.setpRef(pontoReferencia);
+           
+           manterCliente.inserirEnderecoUsuarioCliente(enderecoCliente);
         }
     }
 
@@ -76,7 +108,11 @@ public class servletCadastrarClientes extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(servletCadastrarClientes.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -90,7 +126,11 @@ public class servletCadastrarClientes extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(servletCadastrarClientes.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

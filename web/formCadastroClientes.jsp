@@ -203,7 +203,7 @@
                         <label> E-mail: </label>
                         <input type="text" placeholder="E-mail" maxlength="60" size="28px" name="emailCliente"> 
                         <lable> Senha: </lable>
-                        <input type="text" placeholder="Senha" maxlength="30" size="40px" name="senha"> <br/>
+                        <input type="password" placeholder="Senha" maxlength="30" size="40px" name="senha"> <br/>
                         <label> Telefone: </label>
                         <input type="text" placeholder="Telefone" size="27px" name="telefone"> 
                     </div>
@@ -233,7 +233,7 @@
                             <label> Rua: </label>
                             <input type="text" placeholder="Rua" id="rua" size="52px" name="rua"> <br/> 
                             <label> Bairro: </label>
-                            <input type="text" placeholder="Bairro" id="bairro" size="29px" name="bairro"> 
+                            <input type="text" placeholder="Bairro" id="bairro" size="29px" name="bairro" maxlength="30"> 
                             <label> Cidade: </label>
                             <input type="text" placeholder="Cidade" id="cidade" size="39px" name="cidade"> <br/>
                             <label> UF: </label>
