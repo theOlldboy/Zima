@@ -93,6 +93,7 @@ public class servletCadastrarClientes extends HttpServlet {
            enderecoCliente.setpRef(pontoReferencia);
            
            manterCliente.inserirEnderecoUsuarioCliente(enderecoCliente);
+           out.print(dataValidade);
         }
     }
 

@@ -20,7 +20,7 @@ CREATE TABLE Endereco_Cliente(
     `id_cliente` int primary key auto_increment,
     `cep` varchar(8) not null,
     `rua` varchar(40) not null,
-    `bairro` varchar(30) not null,
+    `bairro` varchar(60) not null,
     `cidade` varchar(30) not null,
     `UF` varchar(2) not null,
     `numero` varchar(20) not null,
@@ -34,7 +34,7 @@ CREATE TABLE Cartao_Cliente(
     `titular_cartao` varchar(50) not null,
     `numero_cartao` varchar(16) not null,
     `codigo_verificacao` int(3) not null,
-    `data_validade` varchar(20),
+    `data_validade` date,
     FOREIGN KEY(`id_cliente`) REFERENCES Usuario(`id_cliente`)
 )Engine = InnoDB;
 

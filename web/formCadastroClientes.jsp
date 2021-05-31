@@ -219,8 +219,8 @@
                         <input type="text" placeholder="Número do cartão" size="36px" name="numeroCartao"> 
                         <label> Código de verificação: </label> 
                         <input type="text" placeholder="CVV" size="8px" name="cvv"> <br/>
-                        <label> Data de validade: </label>
-                        <input type="text" placeholder="Data de validade" name="validadeCartao"> 
+                        <label for="validadeCartao"> Data de validade: </label>
+                        <input type="date" placeholder="Data de validade" id ="validadeCartao" name="validadeCartao"> 
                     </div>
                     <br/>
                     <h2 class="fonte"> Endereço <button type="button" class="btn btn-outline-secondary botaoEsconder" onclick="esconderMostrarEndereco()">
