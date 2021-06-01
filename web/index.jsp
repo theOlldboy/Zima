@@ -84,7 +84,7 @@
 
             .botaoTexto {
                 font-family: 'Nanum Brush Script', cursive;
-                font-size: 1.3em;
+                font-size: 20px;
             }
 
             .conteudoLogin input {
@@ -105,9 +105,23 @@
             }
             
         </style>
+        
+        <script>
+        function validarLogin(){
+            if(document.formLogin.email.value==""){
+                alert("Campo Usuário Não Informado");  
+                return false;
+            } 
+            if(document.formLogin.senha.value==""){ 
+                alert("Campo Senha Não Informado");
+                return false;
+            } 
+            document.formLogin.submit();
+        }
+        </script>
     </head>
     <%@include file="MenuPrincipal.jsp"%> 
-    <body> 
+    <body>
         <div class="demonstracao">
             <span class="imgProd"> <img src="sanduiche1.jpg" height="200" width="395"></span><span class="imgProd"><img src="sanduiche2.jpg" height="200" width="395"> </span><span class="imgProd"><img src="sanduiche3.jpg" height="200" width="395"> </span><span class="imgProd"><img src="sanduiche4.jpg" height="200" width="398"> </span>
         </div>
@@ -116,18 +130,18 @@
                 <img src="Logo.png" width="150px" height="60px">
             </div> <br/>
             <p class="paragrafo">
-                "Venha conhecer o primeiro restaurante isnpirado na culinária cubana de Brasília"
+                "Venha conhecer o primeiro restaurante inspirado na culinária cubana de Brasília"
             </p>
         </div>
         <div class="login">
-            <form action="" method="">
+            <form name="formLogin" action="loginUsuario" method="POST">
                 <div class="conteudoLogin">
                   <p class="paragrafoLogin"> Login </p> 
-                  <input type="text" placeholder="Usuário" name="" size="30"> <br/>
-                  <input type="password" placeholder="Senha" name="" size="30"> <br/> 
+                  <input type="text" placeholder="Usuário" name="email" size="30"> <br/>
+                  <input type="password" placeholder="Senha" name="senha" size="30"> <br/> 
                   <a href="formCadastroClientes.jsp" class="textoLinksAlternativos"> Não possui uma conta ? Crie já! </a>  <br/>
                   <a href="#" class="textoLinksAlternativos"> Esqueceu sua senha ? Clique Aqui </a> 
-                  <button type="submit" class="botaoLogin"> <span class="botaoTexto"> Entrar </span> </button>
+                  <input type="button" class="botaoLogin botaoTexto" onclick="validarLogin()" value="Entrar">
                 </div>
             </form>
         </div> <br/>

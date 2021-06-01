@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -94,6 +95,9 @@ public class servletCadastrarClientes extends HttpServlet {
            
            manterCliente.inserirEnderecoUsuarioCliente(enderecoCliente);
            out.print(dataValidade);
+           
+           RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+           rd.forward(request, response);
         }
     }
 

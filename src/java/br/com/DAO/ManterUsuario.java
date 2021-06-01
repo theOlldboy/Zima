@@ -19,7 +19,7 @@ public class ManterUsuario extends DAO {
     public void inserirDadosPessoaisUsuarioCliente(Usuario us) throws Exception {
         try {
             abrirBanco();
-            String query = "INSERT INTO Usuario(id_cliente,nome_cliente,email_cliente,cpf_cliente,senha,telefone_cliente,tipo_usuario) "
+            String query = "INSERT INTO Usuario(codigo,nome,email,cpf,senha,telefone,tipo) "
                     + "values(null,?,?,?,?,?,?)";
             pst=(PreparedStatement) con.prepareStatement(query);
             pst.setString(1, us.getNome());
@@ -38,7 +38,7 @@ public class ManterUsuario extends DAO {
     public void inserirDadosCartaoUsuarioCliente(Cartao card) throws Exception {
         try {
             abrirBanco();
-            String query = "INSERT INTO Cartao_Cliente(id_cliente,titular_cartao,numero_cartao,codigo_verificacao,data_validade) "
+            String query = "INSERT INTO cartao(cod_usuario,titular,numero,cvv,dataValidade) "
                     + "values(null,?,?,?,?)";
             pst=(PreparedStatement) con.prepareStatement(query);
             pst.setString(1, card.getTitular());
@@ -55,7 +55,7 @@ public class ManterUsuario extends DAO {
     public void inserirEnderecoUsuarioCliente(Endereco end) throws Exception {
         try {
             abrirBanco();
-            String query = "INSERT INTO Endereco_Cliente(id_cliente,cep,rua,bairro,cidade,uf,numero,complemento, pontoReferencia) "
+            String query = "INSERT INTO endereco(cod_usuario,cep,rua,bairro,cidade,uf,numero,complemento, pRef) "
                     + "values(null,?,?,?,?,?,?,?,?)";
             pst=(PreparedStatement) con.prepareStatement(query);
             pst.setString(1, end.getCep());
