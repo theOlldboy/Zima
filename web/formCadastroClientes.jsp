@@ -74,7 +74,7 @@
             }
             
             .botaoEnviar{
-                width:535px;
+                width:500px;
                 background-color:#dfb649;
                 color: #2d2c28;
                 font-family: 'Nanum Brush Script', cursive;
@@ -194,16 +194,16 @@
   <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
 </svg> 
               </button></h2>
-                    <div id="DadosPessoais" class="divSecaoFormulario fonte">
+                    <div id="DadosPessoais" class="divSecaoFormulario fonte ">
                         
                         <label> Nome: </label>
                         <input type="text" placeholder="Nome" size="30" maxlength="60" name="nomeCliente"> 
                         <label> CPF: </label>
-                        <input type="text" placeholder="CPF" maxlength="11" size="42px" name="cpf"> <br/>
+                        <input type="text" placeholder="CPF" maxlength="11" size="44px" name="cpf"> <br/>
                         <label> E-mail: </label>
                         <input type="text" placeholder="E-mail" maxlength="60" size="28px" name="emailCliente"> 
-                        <lable> Senha: </lable>
-                        <input type="password" placeholder="Senha" maxlength="30" size="40px" name="senha"> <br/>
+                        <label> Senha: </label>
+                        <input type="password" placeholder="Senha" maxlength="30" size="42px" name="senha"> <br/>
                         <label> Telefone: </label>
                         <input type="text" placeholder="Telefone" size="27px" name="telefone"> 
                     </div>
@@ -218,7 +218,7 @@
                         <label> Número do Cartão: </label>
                         <input type="text" placeholder="Número do cartão" size="36px" name="numeroCartao"> 
                         <label> Código de verificação: </label> 
-                        <input type="text" placeholder="CVV" size="8px" name="cvv"> <br/>
+                        <input type="text" placeholder="CVV" size="9px" name="cvv"> <br/>
                         <label for="validadeCartao"> Data de validade: </label>
                         <input type="date" placeholder="Data de validade" id ="validadeCartao" name="validadeCartao"> 
                     </div>
@@ -231,11 +231,11 @@
                             <label> CEP: </label>
                             <input type="text" placeholder="CEP" id="cep" onblur="pesquisacep(this.value)" name="cep">
                             <label> Rua: </label>
-                            <input type="text" placeholder="Rua" id="rua" size="52px" name="rua"> <br/> 
+                            <input type="text" placeholder="Rua" id="rua" size="53px" name="rua"> <br/> 
                             <label> Bairro: </label>
-                            <input type="text" placeholder="Bairro" id="bairro" size="29px" name="bairro" maxlength="30"> 
+                            <input type="text" placeholder="Bairro" id="bairro" size="28px" name="bairro" maxlength="30"> 
                             <label> Cidade: </label>
-                            <input type="text" placeholder="Cidade" id="cidade" size="39px" name="cidade"> <br/>
+                            <input type="text" placeholder="Cidade" id="cidade" size="41px" name="cidade"> <br/>
                             <label> UF: </label>
                             <input type="text" placeholder="Estado" id="uf" size="10px" name="estado">
                             

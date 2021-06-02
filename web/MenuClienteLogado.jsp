@@ -1,6 +1,6 @@
 <%-- 
-    Document   : MenuPrincipal
-    Created on : 29/05/2021, 12:53:53
+    Document   : MenuClienteLogado
+    Created on : 01/06/2021, 22:51:35
     Author     : Joao
 --%>
 
@@ -52,10 +52,12 @@
             }
             li>a:hover {
                 color:#2d2c28;
-                text-decoration: none;
             }
         </style>
     <body>
+        <%
+            String emailLogado = (String) String.valueOf(session.getAttribute("email"));
+        %>
         <header class="cabecalho">
             <div class="logo">
                 <a href="index.jsp">
@@ -75,6 +77,9 @@
                     </li>
                     <li>
                         <a href="#contato">Contato</a>
+                    </li>
+                    <li>
+                        <%=emailLogado%>
                     </li>
                 </ul>
             </nav>

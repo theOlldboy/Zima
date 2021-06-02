@@ -76,7 +76,6 @@ public class loginController extends HttpServlet {
         } else {
             System.out.println(emailBuscado + "-" + email);
             System.out.println(senhaBuscada + "-" + senha);
-            request.setAttribute("loginFalhou", "loginFalhou");
             request.getRequestDispatcher("index.jsp").forward(request, response);
         }
     }
