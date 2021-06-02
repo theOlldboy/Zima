@@ -20,14 +20,13 @@ public class ManterUsuario extends DAO {
         try {
             abrirBanco();
             String query = "INSERT INTO Usuario(codigo,nome,email,cpf,senha,telefone,tipo) "
-                    + "values(null,?,?,?,?,?,?)";
+                    + "values(null,?,?,?,?,?,2)";
             pst=(PreparedStatement) con.prepareStatement(query);
             pst.setString(1, us.getNome());
             pst.setString(2, us.getEmail());
             pst.setString(3, us.getCpf());
             pst.setString(4, us.getSenha());
             pst.setString(5, us.getTelefone());
-            pst.setInt(6, us.getTipo());
             pst.execute();
             fecharBanco();
         } catch (Exception e) {
@@ -66,6 +65,23 @@ public class ManterUsuario extends DAO {
             pst.setString(6, end.getNumero());
             pst.setString(7, end.getComplemento());
             pst.setString(8, end.getpRef());
+            pst.execute();
+            fecharBanco();
+        } catch (Exception e) {
+            System.out.println("Erro " + e.getMessage());
+        }
+    }
+        public void inserirDadosPessoaisUsuarioAdministrador(Usuario us) throws Exception {
+        try {
+            abrirBanco();
+            String query = "INSERT INTO Usuario(codigo,nome,email,cpf,senha,telefone,tipo) "
+                    + "values(null,?,?,?,?,?,1)";
+            pst=(PreparedStatement) con.prepareStatement(query);
+            pst.setString(1, us.getNome());
+            pst.setString(2, us.getEmail());
+            pst.setString(3, us.getCpf());
+            pst.setString(4, us.getSenha());
+            pst.setString(5, us.getTelefone());
             pst.execute();
             fecharBanco();
         } catch (Exception e) {
