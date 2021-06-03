@@ -9,6 +9,7 @@ import br.com.entidade.Cartao;
 import br.com.entidade.Endereco;
 import br.com.entidade.Usuario;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.Calendar;
 
 /**
@@ -88,5 +89,79 @@ public class ManterUsuario extends DAO {
             System.out.println("Erro " + e.getMessage());
         }
     }
+        
+    public Usuario pesquisarDadosPessoaisCliente(int id) throws Exception {
+    try {
+            Usuario us = new Usuario();
+            abrirBanco();
+            String query = "SELECT * FROM usuario where codigo=?";
+            pst = con.prepareStatement(query);
+            pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                us.setCodigo(rs.getInt("codigo"));
+                us.setNome(rs.getString("nome"));
+                us.setSenha(rs.getString("senha"));
+                us.setEmail(rs.getString("email"));
+                us.setTelefone(rs.getString("telefone"));
+                return us;
+            }
+            fecharBanco();
+    } catch (Exception e) {
+            System.out.println("Erro " + e.getMessage());
+    }
+    return null;
+    }
+    
+    public Cartao pesquisarDadosCartaoCliente(int id) throws Exception {
+    try {
+            Cartao card = new Cartao();
+            abrirBanco();
+            String query = "SELECT * FROM cartao where cod_usuario=?";
+            pst = con.prepareStatement(query);
+            pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                card.setId_clienteCartao(rs.getInt("cod_usuario"));
+                card.setNumero(rs.getString("numero"));
+                card.setTitular(rs.getString("titular"));
+                card.setDataValidade(rs.getString("dataValidade"));
+                card.setCvv(rs.getString("cvv"));
+                return card;
+            }
+            fecharBanco();
+    } catch (Exception e) {
+            System.out.println("Erro " + e.getMessage());
+    }
+    return null;
+    }
+    
+    public Endereco pesquisarEnderecoCliente(int id) throws Exception {
+    try {
+            Endereco end = new Endereco();
+            abrirBanco();
+            String query = "SELECT * FROM endereco where cod_usuario=?";
+            pst = con.prepareStatement(query);
+            pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                end.setId_cliente(rs.getInt("cod_usuario"));
+                end.setCep(rs.getString("cep"));
+                end.setCidade(rs.getString("cidade"));
+                end.setUf(rs.getString("uf"));
+                end.setBairro(rs.getString("bairro"));
+                end.setRua(rs.getString("rua"));
+                end.setNumero(rs.getString("numero"));
+                end.setComplemento(rs.getString("complemento"));
+                end.setpRef(rs.getString("pRef"));
+                return end;
+            }
+            fecharBanco();
+    } catch (Exception e) {
+            System.out.println("Erro " + e.getMessage());
+    }
+    return null;
+    }
+        
     
 }

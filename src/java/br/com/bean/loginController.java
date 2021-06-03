@@ -43,6 +43,7 @@ public class loginController extends HttpServlet {
             
         String emailBuscado = "";
         String senhaBuscada = "";
+        int codigoUsuario = 0;
         int loginFalhou;
         DAO novaConexao = new DAO();
         Connection con;
@@ -61,6 +62,7 @@ public class loginController extends HttpServlet {
             while (rs.next()) {
                 emailBuscado = rs.getString("email");
                 senhaBuscada = rs.getString("senha");
+                codigoUsuario = rs.getInt("codigo");
             }
             rs.close();
             stmt.close();
@@ -72,6 +74,7 @@ public class loginController extends HttpServlet {
         if (emailBuscado.equals(email) || senhaBuscada.equals(senha)) {
             HttpSession session = request.getSession();//criando o objeto sessao para efetuar o login
             session.setAttribute("email", email);
+            session.setAttribute("codigoUsuario", codigoUsuario);
             request.getRequestDispatcher("paginaPrincipalLoginCliente.jsp").forward(request, response);
         } else {
             System.out.println(emailBuscado + "-" + email);
