@@ -12,6 +12,10 @@
         <servlet-name>servletBuscarDadosUsuarioLogado</servlet-name>
         <servlet-class>br.com.bean.servletBuscarDadosUsuarioLogado</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>servletAlterarDadosCadastrais</servlet-name>
+        <servlet-class>br.com.bean.servletAlterarDadosCadastrais</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>servletCadastrarClientes</servlet-name>
         <url-pattern>/CadastroClientesZima</url-pattern>
@@ -23,5 +27,9 @@
     <servlet-mapping>
         <servlet-name>servletBuscarDadosUsuarioLogado</servlet-name>
         <url-pattern>/BuscarDados</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>servletAlterarDadosCadastrais</servlet-name>
+        <url-pattern>/AlterarDadosCadastrais</url-pattern>
     </servlet-mapping>
 </web-app>

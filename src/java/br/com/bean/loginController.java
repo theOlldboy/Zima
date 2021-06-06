@@ -44,7 +44,6 @@ public class loginController extends HttpServlet {
         String emailBuscado = "";
         String senhaBuscada = "";
         int codigoUsuario = 0;
-        int loginFalhou;
         DAO novaConexao = new DAO();
         Connection con;
         String email = request.getParameter("email");

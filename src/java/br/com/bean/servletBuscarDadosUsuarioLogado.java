@@ -58,7 +58,7 @@ public class servletBuscarDadosUsuarioLogado extends HttpServlet {
             card = mus.pesquisarDadosCartaoCliente(codigoDoUsuario);
             
             request.setAttribute("cod_usuarioCartao", card.getId_clienteCartao());
-            request.setAttribute("numero", card.getNumero());
+            request.setAttribute("numeroCartao", card.getNumero());
             request.setAttribute("titular", card.getTitular());
             request.setAttribute("dataValidade", card.getDataValidade());
             request.setAttribute("cvv", card.getCvv());

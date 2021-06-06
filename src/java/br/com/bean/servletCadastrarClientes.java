@@ -66,11 +66,10 @@ public class servletCadastrarClientes extends HttpServlet {
            
            Cartao cartaoCliente = new Cartao();
            Endereco enderecoCliente = new Endereco();
-           
+           cliente.setEmail(email);
            cliente.criarUsuarioCliente(); // Esse método define, no banco, o tipo do usuário 
            cliente.setNome(nome_cliente);
            cliente.setSenha(senha);
-           cliente.setEmail(email);
            cliente.setCpf(cpf);
            cliente.setTelefone(telefone);
            

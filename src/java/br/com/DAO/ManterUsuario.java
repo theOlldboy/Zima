@@ -162,6 +162,64 @@ public class ManterUsuario extends DAO {
     }
     return null;
     }
-        
     
+    public void alterarDadosPessoais(Usuario us) throws Exception {
+       try {
+    abrirBanco();
+    String query = "UPDATE usuario SET nome=?,senha=?,email=?,telefone=? WHERE codigo=?";
+    pst = con.prepareStatement(query);
+    pst.setString(1, us.getNome());
+    pst.setString(2, us.getSenha());
+    pst.setString(3, us.getEmail());
+    pst.setString(4, us.getTelefone());
+    pst.setInt(5, us.getCodigo());
+    pst.executeUpdate();
+    fecharBanco();
+			
+    } catch (Exception e) {
+            System.out.println("Erro " + e.getMessage());
+    }
+	}
+    
+    
+    public void alterarDadosCartao(Cartao card) throws Exception {
+       try {
+    abrirBanco();
+    String query = "UPDATE cartao SET numero=?,titular=?,dataValidade=?,cvv=? WHERE cod_usuario=?";
+    pst = con.prepareStatement(query);
+    pst.setString(1, card.getNumero());
+    pst.setString(2, card.getTitular());
+    pst.setString(3, card.getDataValidade());
+    pst.setString(4, card.getCvv());
+    pst.setInt(5, card.getId_clienteCartao());
+    pst.executeUpdate();
+    fecharBanco();
+			
+    } catch (Exception e) {
+            System.out.println("Erro " + e.getMessage());
+    }
+	}
+    
+    public void alterarEndereco(Endereco end) throws Exception {
+       try {
+    abrirBanco();
+    String query = "UPDATE endereco SET cep=?,cidade=?,uf=?,bairro=?,rua=?,numero=?,complemento=?,pRef=? WHERE cod_usuario=?";
+    pst = con.prepareStatement(query);
+    pst.setString(1, end.getCep());
+    pst.setString(2, end.getCidade());
+    pst.setString(3, end.getUf());
+    pst.setString(4, end.getBairro());
+    pst.setString(5, end.getRua());
+    pst.setString(6, end.getNumero());
+    pst.setString(7, end.getComplemento());
+    pst.setString(8, end.getpRef());
+    pst.setInt(9, end.getId_cliente());
+    pst.executeUpdate();
+    fecharBanco();
+			
+        } catch (Exception e) {
+            System.out.println("Erro " + e.getMessage());
+          }
+    }
+       
 }
