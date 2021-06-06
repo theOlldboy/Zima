@@ -24,6 +24,20 @@
                 font-size: 2.5em;
             }
             
+            .fonteValor {
+                color: #dfb649;
+                font-family: 'Nanum Brush Script', cursive;
+                font-size: 1.8em;
+                float:right;
+            }
+            
+            .fonteTituloSanduiche {
+                color: #dfb649;
+                font-family: 'Nanum Brush Script', cursive;
+                font-size: 1.8em;
+                
+            }
+            
             .fonteBranco {
                 color: #f5f4f3;
             }
@@ -37,11 +51,12 @@
             
             .curso {
                 display: inline-block;
+                background-color:#2d2c28;
                 box-sizing:border-box;
                 padding: 5px;
-                border: 1px solid #dfb649;
+                border: 2px solid #dfb649;
                 width: 265px;
-                height: 300px;
+                height: 350px;
                 margin: 10px;
             }
             
@@ -97,48 +112,54 @@
                     <div class="curso">
                         <img src="sanduiche1.jpg" height="150"/>
                         <div class="curso-info fonteBranco">
-                            <h4 class="">Sanduíche Um</h4>
+                            <h4 class="fonteTituloSanduiche">Sanduíche Um</h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sed rutrum </p>
+                            <p class="fonteValor"> R$ 14,99 </p>
                         </div>
                     </div>
                     
                     <div class="curso">
                         <img src="sanduiche2.jpg" height="150"/>
                         <div class="curso-info fonteBranco">
-                            <h4>Sanduíche Dois</h4>
+                            <h4 class="fonteTituloSanduiche">Sanduíche Dois</h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sed rutrum </p>
+                            <p class="fonteValor"> R$ 15,99 </p>
                         </div>
                     </div>
                     
                     <div class="curso">
                         <img src="sanduiche3.jpg" height="150"/>
                         <div class="curso-info fonteBranco">
-                            <h4>Sanduíche Três</h4>
+                            <h4 class="fonteTituloSanduiche">Sanduíche Três</h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sed rutrum </p>
+                            <p class="fonteValor"> R$ 16,99 </p>
                         </div>
                     </div>
                     
                     <div class="curso">
                         <img src="sanduiche4.jpg" height="150"/>
                         <div class="curso-info fonteBranco">
-                            <h4>Sanduíche Quatro</h4>
+                            <h4 class="fonteTituloSanduiche">Sanduíche Quatro</h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sed rutrum </p>
+                            <p class="fonteValor"> R$ 17,99 </p>
                         </div>
                     </div>
                     
                     <div class="curso">
                         <img src="sanduiche5.jpg" height="150"/>
                         <div class="curso-info fonteBranco">
-                            <h4>Sanduíche Cinco</h4>
+                            <h4 class="fonteTituloSanduiche">Sanduíche Cinco</h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sed rutrum </p>
+                            <p class="fonteValor"> R$ 18,99 </p>
                         </div>
                     </div>
                     
                     <div class="curso">
                         <img src="sanduiche6.jpg" height="150"/>
                         <div class="curso-info fonteBranco">
-                            <h4>Sanduíche Seis</h4>
+                            <h4 class="fonteTituloSanduiche">Sanduíche Seis</h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sed rutrum </p>
+                            <p class="fonteValor"> R$ 19,99 </p>
                         </div>
                     </div> <br/> <br/>
                

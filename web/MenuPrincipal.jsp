@@ -49,10 +49,18 @@
                 text-decoration: none;
                 font-size: 24px;
                 color:#f5f4f3;
+                margin:0;
+                padding:0;
             }
             li>a:hover {
                 color:#2d2c28;
                 text-decoration: none;
+            }
+            
+            .poscionamentoFolhaMenu {
+                display: inline-block;
+                margin: 0;
+                padding:0;
             }
         </style>
     <body>
@@ -65,15 +73,19 @@
             <nav class="menu">
                 <ul>
                     <li>
+                        
                         <a href="index.jsp">Início</a>
                     </li>
                     <li>
+                        
                         <a href="#cursos"> Destaques </a>
                     </li>
                     <li>
+                        
                         <a href="#sobre">Sobre</a>
                     </li>
                     <li>
+                        
                         <a href="#contato">Contato</a>
                     </li>
                 </ul>
