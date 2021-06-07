@@ -21,13 +21,14 @@ public class ManterUsuario extends DAO {
         try {
             abrirBanco();
             String query = "INSERT INTO Usuario(codigo,nome,email,cpf,senha,telefone,tipo) "
-                    + "values(null,?,?,?,?,?,2)";
+                    + "values(null,?,?,?,?,?,?)";
             pst=(PreparedStatement) con.prepareStatement(query);
             pst.setString(1, us.getNome());
             pst.setString(2, us.getEmail());
             pst.setString(3, us.getCpf());
             pst.setString(4, us.getSenha());
             pst.setString(5, us.getTelefone());
+            pst.setInt(6, us.getTipo());
             pst.execute();
             fecharBanco();
         } catch (Exception e) {
@@ -76,13 +77,14 @@ public class ManterUsuario extends DAO {
         try {
             abrirBanco();
             String query = "INSERT INTO Usuario(codigo,nome,email,cpf,senha,telefone,tipo) "
-                    + "values(null,?,?,?,?,?,1)";
+                    + "values(null,?,?,?,?,?,?)";
             pst=(PreparedStatement) con.prepareStatement(query);
             pst.setString(1, us.getNome());
             pst.setString(2, us.getEmail());
             pst.setString(3, us.getCpf());
             pst.setString(4, us.getSenha());
             pst.setString(5, us.getTelefone());
+            pst.setInt(6, us.getTipo());
             pst.execute();
             fecharBanco();
         } catch (Exception e) {

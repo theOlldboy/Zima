@@ -16,6 +16,10 @@
         <servlet-name>servletAlterarDadosCadastrais</servlet-name>
         <servlet-class>br.com.bean.servletAlterarDadosCadastrais</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CadastraAdm.do</servlet-name>
+        <servlet-class>br.com.bean.servletCadastrarAdm</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>servletCadastrarClientes</servlet-name>
         <url-pattern>/CadastroClientesZima</url-pattern>
@@ -31,5 +35,9 @@
     <servlet-mapping>
         <servlet-name>servletAlterarDadosCadastrais</servlet-name>
         <url-pattern>/AlterarDadosCadastrais</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CadastraAdm.do</servlet-name>
+        <url-pattern>/CadastroAdm</url-pattern>
     </servlet-mapping>
 </web-app>

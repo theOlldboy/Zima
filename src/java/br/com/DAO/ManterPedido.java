@@ -5,11 +5,16 @@
  */
 package br.com.DAO;
 
+import br.com.entidade.Pedido;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
 
 /**
  *
  * @author Mathe
  */
-public class ManterPedido {
+public class ManterPedido extends DAO{
 
 }
