@@ -39,7 +39,7 @@
             }
 
             .imgProd:hover {
-                background-color:#dfb649;
+                background-color:#f5f4f3;
                 opacity:100%;
                 transition:1s;
             }

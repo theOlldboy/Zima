@@ -12,8 +12,12 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" rel="stylesheet">
         <style>
-            .cabecalho {
+            body {
                 background-color: #798b52;
+            }
+
+            .cabecalho {
+                background-color: #2d2c28;
                 padding:5px;
                 border-bottom: 3px solid #f5f4f3;
                 position:relative;
@@ -25,6 +29,7 @@
                 height: 80px;
                 width: 200px;
                 margin-left:0px;
+                top: -32px;
             }
             
             .menu {
@@ -40,34 +45,26 @@
                 font-family: 'Nanum Brush Script', cursive;
             }
             
-            li:hover {
-                background-color:#dfb649;
-            }
+            
             
             a {
                 display:inline-block;
                 text-decoration: none;
                 font-size: 24px;
-                color:#f5f4f3;
+                color:#798b52;
                 margin:0;
                 padding:0;
             }
             li>a:hover {
-                color:#2d2c28;
+                color:#f5f4f3;
                 text-decoration: none;
-            }
-            
-            .poscionamentoFolhaMenu {
-                display: inline-block;
-                margin: 0;
-                padding:0;
             }
         </style>
     <body>
         <header class="cabecalho">
             <div class="logo">
                 <a href="index.jsp">
-                    <img src="Logo.png" alt="Logo" width="200px" height="80px" />
+                    <img src="LogoSemFundo.png" alt="Logo" width="250px" height="150px" />
                 </a>
             </div>
             <nav class="menu">
