@@ -13,7 +13,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" rel="stylesheet">
         <style>
             body {
-                background-color: #798b52;
+                
+                margin:0;
             }
 
             .cabecalho {
@@ -94,7 +95,7 @@
                         <a href="paginaPrincipalLoginCliente.jsp">Cardápio</a>
                     </li>
                     <li>
-                        <a href="#"> Fazer Pedido </a>
+                        <a href="formFazerPedido.jsp"> Fazer Pedido </a>
                     </li>
                     <li>
                         <a href="#">Meus Pedidos</a>

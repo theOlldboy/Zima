@@ -11,7 +11,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" rel="stylesheet">
-        
         <style>
             body {
                 margin: 0;
@@ -127,7 +126,7 @@
         </div>
         <div class="titulo"> <br/>
             <div class="logoAbaixo">
-                <img src="Logo.png" width="150px" height="60px">
+                <img src="LogoAbaixo.png" width="150px" height="60px">
             </div> <br/>
             <p class="paragrafo">
                 "Venha conhecer o primeiro restaurante inspirado na culinária cubana de Brasília"
@@ -145,6 +144,6 @@
                 </div>
             </form>
         </div> <br/>
-        
+        <%@include file="rodaPe.jsp"%> 
     </body>
 </html>

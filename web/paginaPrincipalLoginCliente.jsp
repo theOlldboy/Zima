@@ -14,7 +14,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" rel="stylesheet">
         <style>
             body {
-                margin: 0;
+                
                 background-color: #798b52;
             }
             
@@ -56,7 +56,7 @@
                 padding: 5px;
                 border: 2px solid #dfb649;
                 width: 265px;
-                height: 350px;
+                height: 390px;
                 margin: 10px;
             }
             
@@ -168,5 +168,6 @@
                 <p class="fonteBranco posicionamentoBebidas"> Não se preocupe, todos os sanduíches incluem uma lata 350ml de Coca-Cola ou Guaraná Antártica :), à sua escolha. </p>
             </div>
         </div>
+        <%@include file="rodaPe.jsp"%>
     </body>
 </html>

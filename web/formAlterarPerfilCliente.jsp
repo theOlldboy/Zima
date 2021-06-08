@@ -16,6 +16,7 @@
         <style>
             body {
                 background-color:#798b52;
+                margin:0;
             }
             
             
@@ -276,6 +277,6 @@
                 </form>
             </div>
         </div>
-        
+        <%@include file="rodaPe.jsp"%>
     </body>
 </html>
