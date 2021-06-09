@@ -220,11 +220,15 @@
         }
     };
 
+        function alertarEmailExistente() {
+            if(document.getElementById("emailVerificado").value.equals(existe)) {
+                alert("E-mail já cadastrado na base de dados. Por favor, informe um e-mail diferente")
+            }
+        }
         </script>
     </head>
     <%@include file="MenuPrincipal.jsp"%> <br/>
     <body>
-        
         <div class="jumbotron jumbotron-fluid jumbotromMeu">
             <div class="container fundoJumbotron">
                 <form action="CadastroClientesZima" method="POST">

@@ -223,5 +223,24 @@ public class ManterUsuario extends DAO {
             System.out.println("Erro " + e.getMessage());
           }
     }
+    
+    public boolean validarEmailsCadastrados(String emailDigitado) throws Exception {
+    try {
+            abrirBanco();
+            String query = "SELECT * FROM usuario where email=?";
+            pst = con.prepareStatement(query);
+            pst.setString(1, emailDigitado);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
+            
+    } catch (Exception e) {
+            System.out.println("Erro " + e.getMessage());
+    }
+    return false;
+    }
        
 }

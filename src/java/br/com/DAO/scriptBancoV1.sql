@@ -13,6 +13,7 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `zima`
 --
+DROP DATABASE ZIMA;
 CREATE DATABASE ZIMA;
 USE ZIMA;
 
@@ -168,15 +169,9 @@ ALTER TABLE `produto`
 --
 -- Limitadores para a tabela `cartao`
 --
-ALTER TABLE `cartao`
-  ADD CONSTRAINT `FK_USUARIO` FOREIGN KEY (`cod_usuario`) REFERENCES `usuario` (`codigo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
 -- Limitadores para a tabela `endereco`
 --
-ALTER TABLE `endereco`
-  ADD CONSTRAINT `FK_ENDERECO_USUARIO` FOREIGN KEY (`cod_usuario`) REFERENCES `usuario` (`codigo`) ON DELETE CASCADE ON UPDATE CASCADE;
-
 
 -- Limitadores para a tabela `pedido`
 --

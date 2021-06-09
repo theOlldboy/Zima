@@ -66,37 +66,49 @@ public class servletCadastrarClientes extends HttpServlet {
            
            Cartao cartaoCliente = new Cartao();
            Endereco enderecoCliente = new Endereco();
-           cliente.setEmail(email);
-           cliente.criarUsuarioCliente(); // Esse método define, no banco, o tipo do usuário 
-           cliente.setNome(nome_cliente);
-           cliente.setSenha(senha);
-           cliente.setCpf(cpf);
-           cliente.setTelefone(telefone);
            
-           manterCliente.inserirDadosPessoaisUsuarioCliente(cliente);
+           //If respoinsável por validar se o email já existe
+           if(manterCliente.validarEmailsCadastrados(email)== false) {
+            cliente.setEmail(email);
+           } 
+           
+           else {
+            
+            RequestDispatcher rd = request.getRequestDispatcher("formCadastroClientes.jsp");
+            rd.forward(request, response);
+           }
+           
+            cliente.setNome(nome_cliente);
+            cliente.setSenha(senha);
+            cliente.setCpf(cpf);
+            cliente.setTelefone(telefone);
+
+            manterCliente.inserirDadosPessoaisUsuarioCliente(cliente);
+
+            cartaoCliente.setCvv(codigoVerificacao);
+            cartaoCliente.setNumero(numeroCartao);
+            cartaoCliente.setDataValidade(dataValidade);
+            cartaoCliente.setTitular(titularCartao);
+
+            manterCliente.inserirDadosCartaoUsuarioCliente(cartaoCliente);
+
+            enderecoCliente.setBairro(bairro);
+            enderecoCliente.setCep(cep);
+            enderecoCliente.setCidade(cidade);
+            enderecoCliente.setComplemento(complemento);
+            enderecoCliente.setNumero(numeroEndereco);
+            enderecoCliente.setRua(rua);
+            enderecoCliente.setUf(uf);
+            enderecoCliente.setpRef(pontoReferencia);
+
+            manterCliente.inserirEnderecoUsuarioCliente(enderecoCliente);
+            out.print(dataValidade);
+
+            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+            rd.forward(request, response);
            
            
-           cartaoCliente.setCvv(codigoVerificacao);
-           cartaoCliente.setNumero(numeroCartao);
-           cartaoCliente.setDataValidade(dataValidade);
-           cartaoCliente.setTitular(titularCartao);
            
-           manterCliente.inserirDadosCartaoUsuarioCliente(cartaoCliente);
-           
-           enderecoCliente.setBairro(bairro);
-           enderecoCliente.setCep(cep);
-           enderecoCliente.setCidade(cidade);
-           enderecoCliente.setComplemento(complemento);
-           enderecoCliente.setNumero(numeroEndereco);
-           enderecoCliente.setRua(rua);
-           enderecoCliente.setUf(uf);
-           enderecoCliente.setpRef(pontoReferencia);
-           
-           manterCliente.inserirEnderecoUsuarioCliente(enderecoCliente);
-           out.print(dataValidade);
-           
-           RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
-           rd.forward(request, response);
         }
     }
 

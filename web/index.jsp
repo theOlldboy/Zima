@@ -59,7 +59,7 @@
                 box-sizing: content-box;
                 position: relative;
                 margin-left: 1100px;
-                top: -310px;
+                top: -230px;
                 font-size: 1.8em;
                 font-family: 'Nanum Brush Script', cursive;
             }
