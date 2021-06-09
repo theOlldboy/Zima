@@ -71,8 +71,6 @@
                         <input type="text" placeholder="Descrição" maxlength="500" name="descricao">
                         <label> Preço: </label>
                         <input type="text" placeholder="Preço" maxlength="60" size="28px" name="preco">
-                        <label>Imagem:</label>
-                        <input type="file" placeholder="Anexe a imagem" size="15px" name="imagem">
                         <button type="submit" class="botaoEnviar"> Cadastrar </button>
                         <button type="reset" class="botaoEnviar"> Limpar </button>
                     </div>
