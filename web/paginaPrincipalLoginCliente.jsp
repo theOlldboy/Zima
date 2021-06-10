@@ -86,6 +86,12 @@
             li > a {
                 text-decoration: none;
             }
+            
+            .quantidadeItem {
+                width:40px;
+                margin-top: 10px;
+                margin-left: 5px;
+            }
         </style>
         <title>Bem-Vindo à Zima </title>
     </head>
@@ -115,9 +121,8 @@
                         <div class="curso-info fonteBranco">
                             <h4 class="fonteTituloSanduiche">Sanduíche Um</h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sed rutrum </p>
-                            <p class="fonteValor"> R$ 14,99 </p>
-                            <input type="number" name="Qtd1" />
-                            <input type="hidden" name="codigo_produto" value="1">
+                            <p class="fonteValor"> R$ 14,99 </p> 
+                            <input type="number" name="Qtd1" class="quantidadeItem"/>
                         </div>
                     </div>
                     
@@ -127,7 +132,7 @@
                             <h4 class="fonteTituloSanduiche">Sanduíche Dois</h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sed rutrum </p>
                             <p class="fonteValor"> R$ 15,99 </p>
-                            <input type="number" name="Qtd2" />
+                            <input type="number" name="Qtd2" class="quantidadeItem"/>
                         </div>
                     </div>
                     
@@ -137,7 +142,7 @@
                             <h4 class="fonteTituloSanduiche">Sanduíche Três</h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sed rutrum </p>
                             <p class="fonteValor"> R$ 16,99 </p>
-                            <input type="number" name="Qtd3" />
+                            <input type="number" name="Qtd3" class="quantidadeItem"/>
                         </div>
                     </div>
                     
@@ -147,7 +152,7 @@
                             <h4 class="fonteTituloSanduiche">Sanduíche Quatro</h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sed rutrum </p>
                             <p class="fonteValor"> R$ 17,99 </p>
-                            <input type="number" name="Qtd4" />
+                            <input type="number" name="Qtd4" class="quantidadeItem"/>
                         </div>
                     </div>
                     
@@ -157,7 +162,7 @@
                             <h4 class="fonteTituloSanduiche">Sanduíche Cinco</h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sed rutrum </p>
                             <p class="fonteValor"> R$ 18,99 </p>
-                            <input type="number" name="Qtd5" />
+                            <input type="number" name="Qtd5" class="quantidadeItem"/>
                         </div>
                     </div>
                     
@@ -167,14 +172,16 @@
                             <h4 class="fonteTituloSanduiche">Sanduíche Seis</h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sed rutrum </p>
                             <p class="fonteValor"> R$ 19,99 </p>
-                            <input type="number" name="Qtd6" />
+                            <input type="number" name="Qtd6" class="quantidadeItem"/>
                         </div>
                     </div> <br/> <br/>
-                    </form>
+                    
                 </div>
                 <h2 class="fonte"> Bebidas </h2> 
                 <p class="fonteBranco posicionamentoBebidas"> Não se preocupe, todos os sanduíches incluem uma lata 350ml de Coca-Cola ou Guaraná Antártica :), à sua escolha. </p>
             </div>
+                
+            </form>
         </div>
         <%@include file="rodaPe.jsp"%>
     </body>

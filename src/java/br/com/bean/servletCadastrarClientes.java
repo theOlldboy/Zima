@@ -68,15 +68,15 @@ public class servletCadastrarClientes extends HttpServlet {
            Endereco enderecoCliente = new Endereco();
            
            //If respoinsável por validar se o email já existe
-           if(manterCliente.validarEmailsCadastrados(email)== false) {
-            cliente.setEmail(email);
-           } 
-           
-           else {
-            
-            RequestDispatcher rd = request.getRequestDispatcher("formCadastroClientes.jsp");
-            rd.forward(request, response);
-           }
+            if(manterCliente.validarEmailsCadastrados(email)== false) {
+             cliente.setEmail(email);
+            } 
+
+            else {
+
+             RequestDispatcher rd = request.getRequestDispatcher("formCadastroClientes.jsp");
+             rd.forward(request, response);
+            }
            
             cliente.setNome(nome_cliente);
             cliente.setSenha(senha);

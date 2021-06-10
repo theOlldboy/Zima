@@ -36,13 +36,19 @@
                 size: 450px;
             }
             
+            .fonteInputs {
+                font-family: 'Nanum Brush Script', cursive;
+                color: #dfb649;
+                font-size: 1.3em;
+            }
+            
             .fonte {
                 font-family: 'Nanum Brush Script', cursive;
                 color: #dfb649;
             }
             
             input {
-                border-radius: 15px;
+                border-radius: 25px;
                 border: none;
                 padding:2px;
                 display: inline-block;
@@ -73,7 +79,7 @@
             }
             
             .botaoEnviar{
-                width:535px;
+                width:710px;
                 background-color:#dfb649;
                 color: #2d2c28;
                 font-family: 'Nanum Brush Script', cursive;
@@ -221,7 +227,7 @@
   <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
 </svg> 
               </button></h2>
-                    <div id="DadosPessoais" class="divSecaoFormulario fonte ">
+                    <div id="DadosPessoais" class="divSecaoFormulario fonteInputs ">
                         <input type="hidden" name="codigoUsuario" value="<%=codigo%>">
                         <label> Nome: </label>
                         <input type="text" placeholder="Nome" size="30" maxlength="60" name="nomeClienteAlterado" value="<%=nome%>"> 
@@ -237,14 +243,14 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
   <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
 </svg></h2>
-                    <div id="DadosFinanceiros" class="divSecaoFormulario fonte comecarInvisivel">
+                    <div id="DadosFinanceiros" class="divSecaoFormulario fonteInputs comecarInvisivel">
                         
                         <label>  Titular do cartão: </label>
                         <input type="text" placeholder="Titular do cartão" size="70" name="titularCartaoAlterado" value="<%=titular%>"> <br/>
                         <label> Número do Cartão: </label>
                         <input type="text" placeholder="Número do cartão" size="36px" name="numeroCartaoAlterado" value="<%=numeroCartao%>"> 
                         <label> Código de verificação: </label> 
-                        <input type="text" placeholder="CVV" size="9px" name="cvvAlterado" value="<%=cvv%>"> <br/>
+                        <input type="text" placeholder="CVV" size="10px" name="cvvAlterado" value="<%=cvv%>"> <br/>
                         <label for="validadeCartao"> Data de validade: </label>
                         <input type="date" placeholder="Data de validade" id ="validadeCartao" name="validadeCartaoAlterado" value="<%=dataValidade%>"> 
                     </div>
@@ -253,7 +259,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
   <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
 </svg></h2>
-                    <div id="endereco" class="divSecaoFormulario fonte comecarInvisivel" >
+                    <div id="endereco" class="divSecaoFormulario fonteInputs comecarInvisivel" >
                             
                             <label> CEP: </label>
                             <input type="text" placeholder="CEP" id="cep" onblur="pesquisacep(this.value)" name="cepAlterado" value="<%=cep%>">
@@ -264,9 +270,9 @@
                             <label> Cidade: </label>
                             <input type="text" placeholder="Cidade" id="cidade" size="41px" name="cidadeAlterado" value="<%=cidade%>"> <br/>
                             <label> UF: </label>
-                            <input type="text" placeholder="Estado" id="uf" size="10px" name="estadoAlterado" value="<%=uf%>">
+                            <input type="text" placeholder="Estado" id="uf" size="11px" name="estadoAlterado" value="<%=uf%>">
                             <label class="posicaoFormularioNumero"> Número: </label>
-                            <input type="text" placeholder="Número" size="40px" name="numeroEnderecoAlterado" value="<%=numero%>"> <br/>
+                            <input type="text" placeholder="Número" size="45px" name="numeroEnderecoAlterado" value="<%=numero%>"> <br/>
                             <label> Complemento: </label>
                             <input type="text" placeholder="Complemento" size="74px" name="complementoAlterado" value="<%=complemento%>"> <br/> 
                             <label> Ponto de Referência: </label>

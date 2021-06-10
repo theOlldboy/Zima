@@ -66,11 +66,32 @@ CREATE TABLE `endereco` (
 -- Estrutura da tabela `pagamento`
 --
 
+CREATE TABLE `pedido` (
+  `codigo` int(11) NOT NULL primary key auto_increment,
+  `valor` float NOT NULL,
+  `data` date DEFAULT NULL,
+  `cep_entrega` varchar(10) NOT NULL,
+  `bairro_entrega` varchar(50) NOT NULL,
+  `rua_entrega` varchar(50) NOT NULL,
+  `numero_entrega` varchar(50) NOT NULL,
+  `pRef_entrega` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `itens_pedido`(
+	`id_item` int(11) not null,
+	`cod_pedido`int(11) primary key auto_increment not null,
+    `cod_produto`int(11) not null,
+    `qtde` int(3) not null,
+    FOREIGN KEY(cod_pedido) REFERENCES pedido(codigo)
+)ENGINE = InnoDB DEFAULT CHARSET=utf8mb4;
+
 CREATE TABLE `pagamento` (
   `codigo` int(11) NOT NULL,
+  `cod_pedido` int(11) primary key auto_increment,
   `forma` int(1) NOT NULL,
   `status` int(11) DEFAULT NULL,
-  `data` date NOT NULL
+  `data` date NOT NULL,
+  FOREIGN KEY(cod_pedido) REFERENCES pedido(codigo)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -79,13 +100,6 @@ CREATE TABLE `pagamento` (
 -- Estrutura da tabela `pedido`
 --
 
-CREATE TABLE `pedido` (
-  `codigo` int(11) NOT NULL,
-  `cod_produto` int(11) NOT NULL,
-  `valor` float NOT NULL,
-  `data` date DEFAULT NULL,
-  `local` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -101,82 +115,6 @@ CREATE TABLE `produto` (
   `preco` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `usuario`
---
-
-
-
---
--- Índices para tabelas despejadas
---
-
---
--- Índices para tabela `cartao`
---
-
--- Índices para tabela `endereco`
---
-
--- Índices para tabela `pagamento`
---
-ALTER TABLE `pagamento`
-  ADD PRIMARY KEY (`codigo`);
-
---
--- Índices para tabela `pedido`
---
-ALTER TABLE `pedido`
-  ADD PRIMARY KEY (`codigo`),
-  ADD KEY `FK_PRODUTO` (`cod_produto`);
-
---
--- Índices para tabela `produto`
---
-ALTER TABLE `produto`
-  ADD PRIMARY KEY (`codigo`);
-
---
--- AUTO_INCREMENT de tabelas despejadas
---
-
---
--- AUTO_INCREMENT de tabela `cartao`
---
-
--- AUTO_INCREMENT de tabela `endereco`
---
-
--- AUTO_INCREMENT de tabela `pagamento`
---
-ALTER TABLE `pagamento`
-  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `pedido`
---
-ALTER TABLE `pedido`
-  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `produto`
---
-ALTER TABLE `produto`
-  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Limitadores para a tabela `cartao`
---
-
--- Limitadores para a tabela `endereco`
---
-
--- Limitadores para a tabela `pedido`
---
-ALTER TABLE `pedido`
-  ADD CONSTRAINT `FK_PRODUTO` FOREIGN KEY (`cod_produto`) REFERENCES `produto` (`codigo`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 
