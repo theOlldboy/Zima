@@ -4,6 +4,9 @@
     Author     : Joao
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="br.com.entidade.Produto"%>
+<%@page import="br.com.DAO.ManterProduto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -104,85 +107,55 @@
             if(email.equals("null")) {
                 String redirectURL = "index.jsp";
                 response.sendRedirect(redirectURL);
-            }
-            
+            }            
 
         %>
         <%@include file="MenuClienteLogado.jsp"%> 
-        
-        <div class="jumbotron jumbotron-fluid jumbotromMeu">
+           <div class="jumbotron jumbotron-fluid jumbotromMeu">
             <div class="container fundoJumbotron">
                 <h1 class="fonte"> Cardápio </h1> <br/>
                     <h2 class="fonte"> Sanduíches </h2>
                 <div class="cardapio">
                     <form action="CarrinhoDeCompras">
+                    
+        <%
+            String vcodigo="";
+            String vtitulo="";
+            String vdescricao="";
+            String vpreco="";
+            String vimg="";
+            
+            ManterProduto dao = new ManterProduto();
+            Produto p = new Produto();
+            
+            ArrayList<Produto> produto = dao.pesquisarTudo();
+            for (int i = 0; i < produto.size(); i++) {
+                p = produto.get(i);
+                vcodigo=String.valueOf(p.getCodigo());
+                vtitulo=String.valueOf(p.getTitulo());
+                vdescricao=String.valueOf(p.getDescricao());
+                vpreco=String.valueOf(p.getPreco());
+                vimg=String.valueOf(p.getImg());
+        %>
                     <div class="curso">
-                        <img src="sanduiche1.jpg" height="150"/>
+                        <img src="<%=vimg%>" height="150"/>
                         <div class="curso-info fonteBranco">
-                            <h4 class="fonteTituloSanduiche">Sanduíche Um</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sed rutrum </p>
-                            <p class="fonteValor"> R$ 14,99 </p> 
-                            <input type="number" name="Qtd1" class="quantidadeItem"/>
+                            <h4 class="fonteTituloSanduiche"><%=vtitulo%></h4>
+                            <p><%=vdescricao%></p>
+                            <p class="fonteValor"> R$ <%=vpreco%> </p> 
+                            <input type="number" name="qtd<%=i%>" class="quantidadeItem"/>
+                            <input type="hidden" name="codigoProduto" value="<%=vcodigo%>"/>
                         </div>
                     </div>
-                    
-                    <div class="curso">
-                        <img src="sanduiche2.jpg" height="150"/>
-                        <div class="curso-info fonteBranco">
-                            <h4 class="fonteTituloSanduiche">Sanduíche Dois</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sed rutrum </p>
-                            <p class="fonteValor"> R$ 15,99 </p>
-                            <input type="number" name="Qtd2" class="quantidadeItem"/>
-                        </div>
-                    </div>
-                    
-                    <div class="curso">
-                        <img src="sanduiche3.jpg" height="150"/>
-                        <div class="curso-info fonteBranco">
-                            <h4 class="fonteTituloSanduiche">Sanduíche Três</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sed rutrum </p>
-                            <p class="fonteValor"> R$ 16,99 </p>
-                            <input type="number" name="Qtd3" class="quantidadeItem"/>
-                        </div>
-                    </div>
-                    
-                    <div class="curso">
-                        <img src="sanduiche4.jpg" height="150"/>
-                        <div class="curso-info fonteBranco">
-                            <h4 class="fonteTituloSanduiche">Sanduíche Quatro</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sed rutrum </p>
-                            <p class="fonteValor"> R$ 17,99 </p>
-                            <input type="number" name="Qtd4" class="quantidadeItem"/>
-                        </div>
-                    </div>
-                    
-                    <div class="curso">
-                        <img src="sanduiche5.jpg" height="150"/>
-                        <div class="curso-info fonteBranco">
-                            <h4 class="fonteTituloSanduiche">Sanduíche Cinco</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sed rutrum </p>
-                            <p class="fonteValor"> R$ 18,99 </p>
-                            <input type="number" name="Qtd5" class="quantidadeItem"/>
-                        </div>
-                    </div>
-                    
-                    <div class="curso">
-                        <img src="sanduiche6.jpg" height="150"/>
-                        <div class="curso-info fonteBranco">
-                            <h4 class="fonteTituloSanduiche">Sanduíche Seis</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sed rutrum </p>
-                            <p class="fonteValor"> R$ 19,99 </p>
-                            <input type="number" name="Qtd6" class="quantidadeItem"/>
-                        </div>
+            <% }
+            %>
                     </div> <br/> <br/>
-                    
                 </div>
                 <h2 class="fonte"> Bebidas </h2> 
                 <p class="fonteBranco posicionamentoBebidas"> Não se preocupe, todos os sanduíches incluem uma lata 350ml de Coca-Cola ou Guaraná Antártica :), à sua escolha. </p>
+                <p <button type="submit">Comprar</button>
+                </form>
             </div>
-                
-            </form>
-        </div>
         <%@include file="rodaPe.jsp"%>
     </body>
 </html>

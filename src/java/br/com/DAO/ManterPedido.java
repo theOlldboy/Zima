@@ -31,6 +31,14 @@ public class ManterPedido extends DAO{
         System.out.println("Erro " + e.getMessage());
     }
     }
+    public void GeraPedido(Pedido p) throws Exception{
+        try {
+            abrirBanco();
+            String query = "INSERT INTO pedido (codigo) values (null)";
+        } catch (Exception e) {
+        System.out.println("Erro " + e.getMessage());
+    }
+    }
     //Metodo listar
     
     public ArrayList<Pedido> pesquisarTudo () throws Exception {

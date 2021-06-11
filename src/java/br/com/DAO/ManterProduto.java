@@ -36,7 +36,7 @@ public class ManterProduto extends DAO {
        ArrayList<Produto> listausuarios = new ArrayList<Produto>();
          try{
          abrirBanco();  
-         String query = "select codigo,titulo,descricao,preco FROM produto";
+         String query = "select * FROM produto";
          pst = con.prepareStatement(query);
          ResultSet rs = pst.executeQuery();
          Produto p ;
@@ -46,6 +46,7 @@ public class ManterProduto extends DAO {
            p.setTitulo(rs.getString("titulo"));
            p.setDescricao(rs.getString("descricao"));
            p.setPreco(rs.getDouble("preco"));
+           p.setImg(rs.getString("img"));
            listausuarios.add(p); 
          } 
          fecharBanco();
