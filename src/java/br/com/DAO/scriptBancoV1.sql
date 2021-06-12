@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `zima`
 --
-
+USE ZIMA;
 -- --------------------------------------------------------
 
 --
@@ -275,6 +275,12 @@ ALTER TABLE `pagamento`
   ADD CONSTRAINT `pagamento_ibfk_1` FOREIGN KEY (`cod_pedido`) REFERENCES `pedido` (`codigo`);
 COMMIT;
 
+SET FOREIGN_KEY_CHECKS = 0;
+
+TRUNCATE pedido;
+TRUNCATE itens_pedido;
+
+SET FOREIGN_KEY_CHECKS = 1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -154,10 +154,11 @@
             <% }
             %>
                     </div> <br/> <br/>
-                </div>
+                
                 <h2 class="fonte"> Bebidas </h2> 
                 <p class="fonteBranco posicionamentoBebidas"> Não se preocupe, todos os sanduíches incluem uma lata 350ml de Coca-Cola ou Guaraná Antártica :), à sua escolha. </p>
                 <button type="submit">Comprar</button>
+                </div>
                 </form>
             </div>
         <%@include file="rodaPe.jsp"%>

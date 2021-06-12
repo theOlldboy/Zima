@@ -27,6 +27,8 @@
     <servlet>
         <servlet-name>servletFazerPedido</servlet-name>
         <servlet-class>br.com.bean.servletFazerPedido</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>AlteraProduto</servlet-name>
         <servlet-class>br.com.bean.servletAlterarProduto</servlet-class>
     </servlet>
@@ -50,14 +52,20 @@
         <servlet-name>CadastraAdm.do</servlet-name>
         <url-pattern>/CadastroAdm</url-pattern>
     </servlet-mapping>
+    
     <servlet-mapping>
         <servlet-name>servletCadastrarProduto</servlet-name>
         <url-pattern>/CadastrarProduto</url-pattern>
     </servlet-mapping>
+    
     <servlet-mapping>
         <servlet-name>servletFazerPedido</servlet-name>
         <url-pattern>/FazerPedido</url-pattern>
+    </servlet-mapping>  
+      
+    <servlet-mapping>
         <servlet-name>AlteraProduto</servlet-name>
         <url-pattern>/AlteraProduto</url-pattern>
     </servlet-mapping>
+    
 </web-app>

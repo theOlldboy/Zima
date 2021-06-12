@@ -47,8 +47,14 @@ public class ItemPedido {
         this.qtde = qtde;
     }
     
-    public double calcValorTotalItem(int qtd, double pVend) {
-        return pVend * qtd;
+    public ItemPedido gerarItemPedido(int codProd, int qtdProd, int idItem, int codPedido) {
+        ItemPedido itp = new ItemPedido();
+        itp.setCod_produto(codProd);
+        itp.setQtde(qtdProd);
+        itp.setId_item(idItem); 
+        itp.setCod_pedido(codPedido);
+        
+        return itp;
     }
     
 }

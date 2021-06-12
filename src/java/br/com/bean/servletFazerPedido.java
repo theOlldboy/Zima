@@ -60,17 +60,20 @@ public class servletFazerPedido extends HttpServlet {
             
             end = mus.pesquisarEnderecoCliente(codigoDoUsuario);
            
+            ped.setStatus();
+            mp.gerarPedido(ped);
+            
             ArrayList<Produto> produto = dao.pesquisarTudo();
             for (int i=0; i < produto.size(); i++) {
+                ItemPedido itp = new ItemPedido();
                 qtdProd = Integer.valueOf(request.getParameter("qtd"+i));
                 p = produto.get(i);
                 codProd=Integer.valueOf(request.getParameter("codigoProduto"+i));
                 pVend = Double.valueOf(request.getParameter("pVendProduto"+i));
                 valorPedido = valorPedido + (qtdProd * pVend);
                 
+                idItem = idItem + 1;
                 if(qtdProd != 0) {
-                  idItem = idItem + 1; 
-                  ItemPedido itp = new ItemPedido();
                   itp.setCod_produto(codProd);
                   itp.setQtde(qtdProd);
                   itp.setId_item(idItem); 
@@ -78,15 +81,11 @@ public class servletFazerPedido extends HttpServlet {
                   mitp.inserirItensPedido(itp);
                 }
             }
-            //Criando um pedido
-                ped.setValor(valorPedido);
-                ped.setCepEntrega(end.getCep());
-                ped.setBairroEntrega(end.getBairro());
-                ped.setRuaEntrega(end.getRua());
-                ped.setNumeroEntrega(end.getNumero());
-                ped.setpRefEntrega(end.getpRef());
-                ped.setStatus();
-                mp.inserir(ped);
+            
+            mp.preencherValorPedido(valorPedido, mp.pesquisarPedido());
+                
+                //Criando um pedido
+                
                 
                 
                 

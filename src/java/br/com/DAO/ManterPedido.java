@@ -17,26 +17,37 @@ import java.util.Calendar;
  * @author Mathe
  */
 public class ManterPedido extends DAO{
-    public void inserir(Pedido p) throws Exception {
+    public void gerarPedido(Pedido p) throws Exception {
     try {
     abrirBanco();
-    String query = "INSERT INTO pedido(codigo,valor,data,cep_entrega,bairro_entrega,rua_entrega,numero_entrega,pRef_entrega,status) "
-            + "values(null,?,?,?,?,?,?,?,?)";
+    String query = "INSERT INTO pedido(codigo,data,status) "
+            + "values(null,?,?)";
     pst=(PreparedStatement) con.prepareStatement(query);
-    pst.setDouble(1, p.getValor());
-    pst.setDate(2, new java.sql.Date(Calendar.getInstance().getTimeInMillis()));
-    pst.setString(3, p.getCepEntrega());
-    pst.setString(4, p.getBairroEntrega());
-    pst.setString(5, p.getRuaEntrega());
-    pst.setString(6, p.getNumeroEntrega());
-    pst.setString(7, p.getpRefEntrega());
-    pst.setString(8, p.getStatus());
+    pst.setDate(1, new java.sql.Date(Calendar.getInstance().getTimeInMillis()));
+    pst.setString(2, p.getStatus());
     pst.execute();
     fecharBanco();
     } catch (Exception e) {
         System.out.println("Erro " + e.getMessage());
     }
     }
+    
+    public void preencherValorPedido(double valorPedido, int codPedido) throws Exception {
+       try {
+    abrirBanco();
+    String query = "UPDATE pedido SET valor=? WHERE codigo=?";
+    pst = con.prepareStatement(query);
+    pst.setDouble(1, valorPedido);
+    pst.setInt(2, codPedido);    
+    pst.executeUpdate();
+    fecharBanco();
+			
+    } catch (Exception e) {
+            System.out.println("Erro " + e.getMessage());
+    }
+	}
+    
+    
     
     public int pesquisarPedido() throws Exception {
     try {
@@ -58,14 +69,7 @@ public class ManterPedido extends DAO{
 	}   
     
     
-    public void GeraPedido(Pedido p) throws Exception{
-        try {
-            abrirBanco();
-            String query = "INSERT INTO pedido (codigo) values (null)";
-        } catch (Exception e) {
-        System.out.println("Erro " + e.getMessage());
-    }
-    }
+    
     //Metodo listar
     
     public ArrayList<Pedido> pesquisarTudo () throws Exception {
