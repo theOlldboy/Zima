@@ -32,6 +32,14 @@
         <servlet-name>AlteraProduto</servlet-name>
         <servlet-class>br.com.bean.servletAlterarProduto</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>servletPreencherEnderecoEntrega</servlet-name>
+        <servlet-class>br.com.bean.servletPreencherEnderecoEntrega</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>servletEfetuarPagamento</servlet-name>
+        <servlet-class>br.com.bean.servletEfetuarPagamento</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>servletCadastrarClientes</servlet-name>
         <url-pattern>/CadastroClientesZima</url-pattern>
@@ -52,20 +60,24 @@
         <servlet-name>CadastraAdm.do</servlet-name>
         <url-pattern>/CadastroAdm</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>servletCadastrarProduto</servlet-name>
         <url-pattern>/CadastrarProduto</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>servletFazerPedido</servlet-name>
         <url-pattern>/FazerPedido</url-pattern>
-    </servlet-mapping>  
-      
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AlteraProduto</servlet-name>
         <url-pattern>/AlteraProduto</url-pattern>
     </servlet-mapping>
-    
+    <servlet-mapping>
+        <servlet-name>servletPreencherEnderecoEntrega</servlet-name>
+        <url-pattern>/EnderecoEntrega</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>servletEfetuarPagamento</servlet-name>
+        <url-pattern>/EfetuarPagamento</url-pattern>
+    </servlet-mapping>
 </web-app>

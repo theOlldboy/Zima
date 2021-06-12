@@ -3,14 +3,16 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 12-Jun-2021 às 04:21
+-- Tempo de geração: 12-Jun-2021 às 22:57
 -- Versão do servidor: 10.4.18-MariaDB
 -- versão do PHP: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
-
+DROP DATABASE ZIMA;
+CREATE DATABASE ZIMA;
+USE ZIMA;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -20,7 +22,7 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `zima`
 --
-USE ZIMA;
+
 -- --------------------------------------------------------
 
 --
@@ -65,7 +67,8 @@ CREATE TABLE `endereco` (
 --
 
 INSERT INTO `endereco` (`cod_usuario`, `cep`, `cidade`, `uf`, `bairro`, `rua`, `numero`, `complemento`, `pRef`) VALUES
-(1, '72010030', 'BrasÃ­lia', 'DF', 'Taguatinga Centro (Taguatinga)', 'C 3', 6, 'bla bla bla bla bal bla', 'AAAAAAAAAAAAAAAAh');
+(1, '72010030', 'BrasÃ­lia', 'DF', 'Taguatinga Centro (Taguatinga)', 'C 3', 6, 'bla bla bla bla bal bla', 'AAAAAAAAAAAAAAAAh'),
+(2, '16075690', 'AraÃ§atuba', 'SP', 'Conjunto Habitacional Manoel Pires', 'Rua A', 2, 'hfghfghhj hgfjghjg ghj', 'jhgjghjgh ghjghj jjjj');
 
 -- --------------------------------------------------------
 
@@ -78,9 +81,14 @@ CREATE TABLE `itens_pedido` (
   `id_item` int(11) NOT NULL,
   `cod_pedido` int(11) NOT NULL,
   `cod_produto` int(11) NOT NULL,
-  `qtde` int(3) NOT NULL
+  `qtde` int(3) NOT NULL,
+  `tipo_bebida` varchar(10) NOT NULL,
+  `qtde_bebida` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Extraindo dados da tabela `itens_pedido`
+--
 
 
 
@@ -91,7 +99,7 @@ CREATE TABLE `itens_pedido` (
 --
 
 CREATE TABLE `pagamento` (
-  `codigo` int(11) NOT NULL,
+  `codigo` int(11) NOT NULL primary key auto_increment,
   `cod_pedido` int(11) NOT NULL,
   `forma` int(1) NOT NULL,
   `status` int(11) DEFAULT NULL,
@@ -116,7 +124,13 @@ CREATE TABLE `pedido` (
   `status` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Extraindo dados da tabela `pedido`
+--
 
+
+
+-- --------------------------------------------------------
 
 --
 -- Estrutura da tabela `produto`
@@ -163,7 +177,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`codigo`, `tipo`, `nome`, `cpf`, `senha`, `email`, `telefone`) VALUES
-(1, 0, 'JoÃ£o OtÃ¡vio Lima Felipelli', '07029717155', '33522773', 'joaolima.felipelli@gmail.com', '611999141797');
+(1, 0, 'JoÃ£o OtÃ¡vio Lima Felipelli', '07029717155', '33522773', 'joaolima.felipelli@gmail.com', '611999141797'),
+(2, 0, 'Lulindo', '55555555555', '212330', 'lulindo@gmail.com', '61999156641');
 
 --
 -- Índices para tabelas despejadas
@@ -191,8 +206,6 @@ ALTER TABLE `itens_pedido`
 --
 -- Índices para tabela `pagamento`
 --
-ALTER TABLE `pagamento`
-  ADD PRIMARY KEY (`cod_pedido`);
 
 --
 -- Índices para tabela `pedido`
@@ -220,31 +233,25 @@ ALTER TABLE `cartao`
 -- AUTO_INCREMENT de tabela `endereco`
 --
 ALTER TABLE `endereco`
-  MODIFY `cod_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `cod_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `itens_pedido`
 --
 ALTER TABLE `itens_pedido`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
---
--- AUTO_INCREMENT de tabela `pagamento`
---
-ALTER TABLE `pagamento`
-  MODIFY `cod_pedido` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restrições para despejos de tabelas
@@ -279,6 +286,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 
 TRUNCATE pedido;
 TRUNCATE itens_pedido;
+TRUNCATE pagamento;
 
 SET FOREIGN_KEY_CHECKS = 1;
 

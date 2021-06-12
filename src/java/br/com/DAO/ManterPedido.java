@@ -5,6 +5,7 @@
  */
 package br.com.DAO;
 
+import br.com.entidade.Endereco;
 import br.com.entidade.Pedido;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -47,8 +48,25 @@ public class ManterPedido extends DAO{
     }
 	}
     
-    
-    
+    public void preencherEnderecoEntregaPedido(Endereco end, int codUsuario) throws Exception {
+       try {
+    abrirBanco();
+    String query = "UPDATE pedido SET cep_entrega=?,bairro_entrega=?,rua_entrega=?,numero_entrega=?,pRef_entrega=? WHERE codigo=?";
+    pst = con.prepareStatement(query);
+    pst.setString(1, end.getCep());
+    pst.setString(2, end.getBairro());
+    pst.setString(3, end.getRua());
+    pst.setString(4, end.getNumero());
+    pst.setString(5, end.getpRef());
+    pst.setInt(6, codUsuario);
+    pst.executeUpdate();
+    fecharBanco();
+			
+    } catch (Exception e) {
+            System.out.println("Erro " + e.getMessage());
+    }
+	}
+ 
     public int pesquisarPedido() throws Exception {
     try {
             int ultimoCodigoInserido;

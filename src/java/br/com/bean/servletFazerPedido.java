@@ -18,6 +18,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -88,14 +89,19 @@ public class servletFazerPedido extends HttpServlet {
             }
             
             mp.preencherValorPedido(valorPedido, mp.pesquisarPedido());
-                
-                //Criando um pedido
-                
-                
-                
-                
             
-        
+            request.setAttribute("cod_usuarioEndereco", end.getId_cliente());
+            request.setAttribute("cep", end.getCep());
+            request.setAttribute("cidade", end.getCidade());
+            request.setAttribute("uf", end.getUf());
+            request.setAttribute("bairro", end.getBairro());
+            request.setAttribute("rua", end.getRua());
+            request.setAttribute("numero", end.getNumero());
+            request.setAttribute("complemento", end.getComplemento());
+            request.setAttribute("pRef", end.getpRef());
+            
+            RequestDispatcher rd = request.getRequestDispatcher("preencherEndereco.jsp");
+            rd.forward(request, response);    
             }
         }
 

@@ -13,9 +13,18 @@ import java.sql.Date;
  */
 public class Pagamento {
     private int codigo;
-    private int forma;
-    private int status;
+    private String forma;
+    private int codPedido;
+    private String status;
     private Date data;    
+
+    public int getCodPedido() {
+        return codPedido;
+    }
+
+    public void setCodPedido(int codPedido) {
+        this.codPedido = codPedido;
+    }
 
     public int getCodigo() {
         return codigo;
@@ -25,20 +34,20 @@ public class Pagamento {
         this.codigo = codigo;
     }
 
-    public int getForma() {
+    public String getForma() {
         return forma;
     }
 
-    public void setForma(int forma) {
+    public void setForma(String forma) {
         this.forma = forma;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public void setStatusPago() {
+        this.status = "Pago";
     }
 
     public Date getData() {
