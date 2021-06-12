@@ -47,7 +47,7 @@
             
             .jumbotromMeu {
                 background-color:#798b52;
-                size: 900px;
+                size: 800px;
             }
             
             
@@ -59,7 +59,7 @@
                 padding: 5px;
                 border: 2px solid #dfb649;
                 width: 265px;
-                height: 390px;
+                height: 480px;
                 margin: 10px;
             }
             
@@ -91,9 +91,22 @@
             }
             
             .quantidadeItem {
-                width:40px;
+                width:45px;
                 margin-top: 10px;
-                margin-left: 5px;
+               
+            }
+            
+            .botaoFazerPedido {
+                float: right;
+                border: none;
+                color: #dfb649;
+                font-family: 'Nanum Brush Script', cursive;
+                font-size: 2.0em;
+                background-color: #798b52;
+            }
+            
+            .botaoFazerPedido:hover {
+                text-decoration: underline;
             }
         </style>
         <title>Bem-Vindo à Zima </title>
@@ -144,7 +157,12 @@
                         <div class="curso-info fonteBranco">
                             <h4 class="fonteTituloSanduiche"><%=vtitulo%></h4>
                             <p><%=vdescricao%></p>
-                            <p class="fonteValor"> R$ <%=vpreco%> </p> 
+                            <label for="bebidas" class="fonteTituloSanduiche">Escolha sua bebida</label>
+                            <select name="bebidaProd<%=i%>">
+                              <option value="Coca">Coca-Cola</option>
+                              <option value="Guarana">Guaraná</option>
+                            </select> <br/>
+                            <p class="fonteValor"> R$ <%=vpreco%> </p>
                             <input type="number" name="qtd<%=i%>" class="quantidadeItem"/>
                             <input type="hidden" name="codigoProduto<%=i%>" value="<%=vcodigo%>"/>
                             <input type="hidden" name="pVendProduto<%=i%>" value="<%=vpreco%>"/>
@@ -157,7 +175,9 @@
                 
                 <h2 class="fonte"> Bebidas </h2> 
                 <p class="fonteBranco posicionamentoBebidas"> Não se preocupe, todos os sanduíches incluem uma lata 350ml de Coca-Cola ou Guaraná Antártica :), à sua escolha. </p>
-                <button type="submit">Comprar</button>
+                <button type="submit" class="botaoFazerPedido">Próximo <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+</svg></button>
                 </div>
                 </form>
             </div>

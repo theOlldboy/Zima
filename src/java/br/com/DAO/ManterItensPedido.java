@@ -18,13 +18,15 @@ public class ManterItensPedido extends DAO {
     public void inserirItensPedido(ItemPedido itp) throws Exception {
     try {
     abrirBanco();
-    String query = "INSERT INTO itens_pedido(id,id_item,cod_pedido,cod_produto,qtde) "
-            + "values(null,?,?,?,?)";
+    String query = "INSERT INTO itens_pedido(id,id_item,cod_pedido,cod_produto,qtde,tipo_bebida, qtde_bebida) "
+            + "values(null,?,?,?,?,?,?)";
     pst=(PreparedStatement) con.prepareStatement(query);
     pst.setInt(1, itp.getId_item());
     pst.setInt(2, itp.getCod_pedido());
     pst.setInt(3, itp.getCod_produto());
     pst.setInt(4, itp.getQtde());
+    pst.setString(5, itp.getBebida());
+    pst.setInt(6, itp.getQtdeBebida());
     pst.execute();
     fecharBanco();
     } catch (Exception e) {

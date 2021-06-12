@@ -47,6 +47,7 @@ public class servletFazerPedido extends HttpServlet {
             int codigoDoUsuario = Integer.valueOf(request.getParameter("codUsuario"));
             int codProd;
             String qtdProd;
+            String bebidaProd;
             int idItem=0; 
             double valorPedido=0.0;
             double pVend;
@@ -69,6 +70,7 @@ public class servletFazerPedido extends HttpServlet {
                 qtdProd = (request.getParameter("qtd"+i));
                 codProd=Integer.valueOf(request.getParameter("codigoProduto"+i));
                 pVend = Double.valueOf(request.getParameter("pVendProduto"+i));
+                bebidaProd = (request.getParameter("bebidaProd"+i));
                 if(qtdProd.equals("")){
                   
                 } else {
@@ -79,6 +81,8 @@ public class servletFazerPedido extends HttpServlet {
                     itp.setQtde(Integer.valueOf(qtdProd));
                     itp.setId_item(idItem); 
                     itp.setCod_pedido(mp.pesquisarPedido());
+                    itp.setBebida(bebidaProd);
+                    itp.setQtdeBebida(Integer.valueOf(qtdProd));
                     mitp.inserirItensPedido(itp);
                 } 
             }

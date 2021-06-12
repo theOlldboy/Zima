@@ -14,6 +14,24 @@ public class ItemPedido {
     private int cod_pedido;
     private int cod_produto;
     private int qtde;
+    private String bebida;
+    private int qtdeBebida;
+
+    public String getBebida() {
+        return bebida;
+    }
+
+    public void setBebida(String bebida) {
+        this.bebida = bebida;
+    }
+
+    public int getQtdeBebida() {
+        return qtdeBebida;
+    }
+
+    public void setQtdeBebida(int qtdeBebida) {
+        this.qtdeBebida = qtdeBebida;
+    }
 
     public int getId_item() {
         return id_item;
