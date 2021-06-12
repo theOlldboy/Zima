@@ -92,12 +92,13 @@ public class ManterProduto extends DAO {
       public void alterar(Produto p) throws Exception {
        try {
     abrirBanco();
-    String query = "UPDATE produto SET titulo=?,descricao=?,preco=? WHERE codigo=?";
+    String query = "UPDATE produto SET titulo=?,descricao=?,preco=?,img=? WHERE codigo=?";
     pst = con.prepareStatement(query);
     pst.setString(1, p.getTitulo());
     pst.setString(2, p.getDescricao());
     pst.setDouble(3, p.getPreco());
-    pst.setInt(4, p.getCodigo());
+    pst.setString(4, p.getImg());
+    pst.setInt(5, p.getCodigo());
     pst.executeUpdate();
     fecharBanco();
 			
