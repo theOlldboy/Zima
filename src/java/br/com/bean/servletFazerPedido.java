@@ -46,7 +46,7 @@ public class servletFazerPedido extends HttpServlet {
             
             int codigoDoUsuario = Integer.valueOf(request.getParameter("codUsuario"));
             int codProd;
-            int qtdProd=0;
+            String qtdProd;
             int idItem=0; 
             double valorPedido=0.0;
             double pVend;
@@ -66,20 +66,21 @@ public class servletFazerPedido extends HttpServlet {
             ArrayList<Produto> produto = dao.pesquisarTudo();
             for (int i=0; i < produto.size(); i++) {
                 ItemPedido itp = new ItemPedido();
-                qtdProd = Integer.valueOf(request.getParameter("qtd"+i));
-                p = produto.get(i);
+                qtdProd = (request.getParameter("qtd"+i));
                 codProd=Integer.valueOf(request.getParameter("codigoProduto"+i));
                 pVend = Double.valueOf(request.getParameter("pVendProduto"+i));
-                valorPedido = valorPedido + (qtdProd * pVend);
-                
-                idItem = idItem + 1;
-                if(qtdProd != 0) {
-                  itp.setCod_produto(codProd);
-                  itp.setQtde(qtdProd);
-                  itp.setId_item(idItem); 
-                  itp.setCod_pedido(mp.pesquisarPedido());
-                  mitp.inserirItensPedido(itp);
-                }
+                if(qtdProd.equals("")){
+                  
+                } else {
+                    p = produto.get(i);
+                    valorPedido = valorPedido + (Integer.valueOf(qtdProd) * pVend);
+                    idItem = idItem + 1;
+                    itp.setCod_produto(codProd);
+                    itp.setQtde(Integer.valueOf(qtdProd));
+                    itp.setId_item(idItem); 
+                    itp.setCod_pedido(mp.pesquisarPedido());
+                    mitp.inserirItensPedido(itp);
+                } 
             }
             
             mp.preencherValorPedido(valorPedido, mp.pesquisarPedido());
