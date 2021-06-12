@@ -5,29 +5,25 @@
  */
 package br.com.bean;
 
-import br.com.DAO.ManterItensPedido;
 import br.com.DAO.ManterPedido;
-import br.com.DAO.ManterProduto;
-import br.com.DAO.ManterUsuario;
-import br.com.entidade.Endereco;
-import br.com.entidade.ItemPedido;
 import br.com.entidade.Pedido;
-import br.com.entidade.Produto;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Joao
+ * @author Mathe
  */
-public class servletFazerPedido extends HttpServlet {
+@WebServlet(name = "AlteraStatus", urlPatterns = {"/AlteraStatus"})
+public class servletAlterarStatusPedido extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,61 +39,21 @@ public class servletFazerPedido extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            String vstatus = request.getParameter("status");
+            int vcod =(Integer.valueOf(request.getParameter("codigo")));
             
-            int codigoDoUsuario = Integer.valueOf(request.getParameter("codUsuario"));
-            int codProd;
-            String qtdProd;
-            String bebidaProd;
-            int idItem=0; 
-            double valorPedido=0.0;
-            double pVend;
-            ManterProduto dao = new ManterProduto();
-            Produto p = new Produto();
-            Pedido ped = new Pedido();
-            Endereco end = new Endereco();
-            ManterUsuario mus = new ManterUsuario();
-            ManterPedido mp = new ManterPedido();
-            ManterItensPedido mitp = new ManterItensPedido();
+            Pedido p = new Pedido();
+            p.setCodigo(vcod);
+            p.setStatus(vstatus);
             
-            end = mus.pesquisarEnderecoCliente(codigoDoUsuario);
-           
-            ped.setStatus("P");
-            mp.gerarPedido(ped);
+            ManterPedido dao = new ManterPedido();
+            dao.alterarStatus(p);
             
-            ArrayList<Produto> produto = dao.pesquisarTudo();
-            for (int i=0; i < produto.size(); i++) {
-                ItemPedido itp = new ItemPedido();
-                qtdProd = (request.getParameter("qtd"+i));
-                codProd=Integer.valueOf(request.getParameter("codigoProduto"+i));
-                pVend = Double.valueOf(request.getParameter("pVendProduto"+i));
-                bebidaProd = (request.getParameter("bebidaProd"+i));
-                if(qtdProd.equals("")){
-                  
-                } else {
-                    p = produto.get(i);
-                    valorPedido = valorPedido + (Integer.valueOf(qtdProd) * pVend);
-                    idItem = idItem + 1;
-                    itp.setCod_produto(codProd);
-                    itp.setQtde(Integer.valueOf(qtdProd));
-                    itp.setId_item(idItem); 
-                    itp.setCod_pedido(mp.pesquisarPedido());
-                    itp.setBebida(bebidaProd);
-                    itp.setQtdeBebida(Integer.valueOf(qtdProd));
-                    mitp.inserirItensPedido(itp);
-                } 
-            }
+            RequestDispatcher rd = request.getRequestDispatcher("formAcompanhaPedidoAdministrador.jsp");
+            rd.forward(request, response);
             
-            mp.preencherValorPedido(valorPedido, mp.pesquisarPedido());
-                
-                //Criando um pedido
-                
-                
-                
-                
-            
-        
-            }
         }
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -114,7 +70,7 @@ public class servletFazerPedido extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(servletFazerPedido.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(servletAlterarStatusPedido.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -132,7 +88,7 @@ public class servletFazerPedido extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(servletFazerPedido.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(servletAlterarStatusPedido.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

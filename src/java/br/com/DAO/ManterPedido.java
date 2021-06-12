@@ -76,15 +76,21 @@ public class ManterPedido extends DAO{
        ArrayList<Pedido> listausuarios = new ArrayList<Pedido>();
          try{
          abrirBanco();  
-         String query = "select codigo,cod_produto,valor,local FROM pedido";
+         String query = "select * FROM pedido";
          pst = con.prepareStatement(query);
          ResultSet rs = pst.executeQuery();
          Pedido p ;
          while (rs.next()){ 
            p = new Pedido();
            p.setCodigo(rs.getInt("codigo"));
-           p.setCodigoItems(rs.getInt("cod_produto"));
            p.setValor(rs.getDouble("valor"));
+           p.setData(rs.getDate("data"));
+           p.setCepEntrega(rs.getString("cep_entrega"));
+           p.setBairroEntrega(rs.getString("bairro_entrega"));
+           p.setRuaEntrega(rs.getString("rua_entrega"));
+           p.setNumeroEntrega(rs.getString("numero_entrega"));
+           p.setpRefEntrega(rs.getString("pRef_entrega"));
+           p.setStatus(rs.getString("status"));
            listausuarios.add(p); 
          } 
          fecharBanco();
@@ -96,7 +102,7 @@ public class ManterPedido extends DAO{
     
       public void deletar(Pedido p) throws Exception{
          abrirBanco();
-         String query = "delete FROM pedido where codigo=?";
+         String query = "DELETE * FROM pedido where codigo=?";
          pst=(PreparedStatement) con.prepareStatement(query);
          pst.setInt(1, p.getCodigo());
          pst.execute();
@@ -114,11 +120,16 @@ public class ManterPedido extends DAO{
             pst.setInt(1, codigo);
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
-                p.setCodigo(rs.getInt("codigo"));
-                p.setCodigoItems(rs.getInt("cod_produto"));
-                p.setValor(rs.getDouble("valor"));
-                
-                return p;
+           p.setCodigo(rs.getInt("codigo"));
+           p.setValor(rs.getDouble("valor"));
+           p.setData(rs.getDate("data"));
+           p.setCepEntrega(rs.getString("cep_entrega"));
+           p.setBairroEntrega(rs.getString("bairro_entrega"));
+           p.setRuaEntrega(rs.getString("rua_entrega"));
+           p.setNumeroEntrega(rs.getString("numero_entrega"));
+           p.setpRefEntrega(rs.getString("pRef_entrega"));
+           p.setStatus(rs.getString("status"));
+            return p;
             }
             fecharBanco();
     } catch (Exception e) {
@@ -132,9 +143,23 @@ public class ManterPedido extends DAO{
     abrirBanco();
     String query = "UPDATE pedido SET cod_produto=?,valor=?,local=? WHERE codigo=?";
     pst = con.prepareStatement(query);
-    pst.setInt(1, p.getCodigoItems());
     pst.setDouble(2, p.getValor());
     pst.setInt(4, p.getCodigo());
+    pst.executeUpdate();
+    fecharBanco();
+			
+    } catch (Exception e) {
+            System.out.println("Erro " + e.getMessage());
+    }
+	}
+      
+      public void alterarStatus(Pedido p) throws Exception {
+       try {
+    abrirBanco();
+    String query = "UPDATE pedido SET status=? WHERE codigo=?";
+    pst = con.prepareStatement(query);
+    pst.setString(1, p.getStatus());
+    pst.setInt(2, p.getCodigo());
     pst.executeUpdate();
     fecharBanco();
 			

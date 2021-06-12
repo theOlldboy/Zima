@@ -13,7 +13,6 @@ import java.sql.Date;
  */
 public class Pedido {
     private int codigo;
-    private int codigoItems;
     private String status;
     private double valor;
     private Date data;
@@ -99,20 +98,12 @@ public class Pedido {
         this.codigo = codigo;
     }
 
-    public int getCodigoItems() {
-        return codigoItems;
-    }
-
-    public void setCodigoItems(int codigoItems) {
-        this.codigoItems = codigoItems;
-    }
-
     public String getStatus() {
         return status;
     }
 
-    public void setStatus() {
-        this.status = "P";
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public double getValor() {
