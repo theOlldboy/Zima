@@ -116,7 +116,7 @@
                 <h1 class="fonte"> Cardápio </h1> <br/>
                     <h2 class="fonte"> Sanduíches </h2>
                 <div class="cardapio">
-                    <form action="CarrinhoDeCompras">
+                    <form action="FazerPedido">
                     
         <%
             String vcodigo="";
@@ -127,6 +127,8 @@
             
             ManterProduto dao = new ManterProduto();
             Produto p = new Produto();
+            
+            String codigoUsuarioLogin = (String) String.valueOf(session.getAttribute("codigoUsuario"));
             
             ArrayList<Produto> produto = dao.pesquisarTudo();
             for (int i = 0; i < produto.size(); i++) {
@@ -144,7 +146,9 @@
                             <p><%=vdescricao%></p>
                             <p class="fonteValor"> R$ <%=vpreco%> </p> 
                             <input type="number" name="qtd<%=i%>" class="quantidadeItem"/>
-                            <input type="hidden" name="codigoProduto" value="<%=vcodigo%>"/>
+                            <input type="hidden" name="codigoProduto<%=i%>" value="<%=vcodigo%>"/>
+                            <input type="hidden" name="pVendProduto<%=i%>" value="<%=vpreco%>"/>
+                            <input type="hidden" name="codUsuario" value="<%=codigoUsuarioLogin%>"/>
                         </div>
                     </div>
             <% }
@@ -153,7 +157,7 @@
                 </div>
                 <h2 class="fonte"> Bebidas </h2> 
                 <p class="fonteBranco posicionamentoBebidas"> Não se preocupe, todos os sanduíches incluem uma lata 350ml de Coca-Cola ou Guaraná Antártica :), à sua escolha. </p>
-                <p <button type="submit">Comprar</button>
+                <button type="submit">Comprar</button>
                 </form>
             </div>
         <%@include file="rodaPe.jsp"%>

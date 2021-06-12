@@ -14,10 +14,82 @@ import java.sql.Date;
 public class Pedido {
     private int codigo;
     private int codigoItems;
-    private int status;
+    private String status;
     private double valor;
     private Date data;
-    private String localizacao;
+    private String cepEntrega;
+    private String cidadeEntrega;
+    private String ufEntrega;
+    private String bairroEntrega;
+    private String ruaEntrega;
+    private String numeroEntrega;
+    private String complementoEntrega;
+    private String pRefEntrega;
+  
+
+    public String getCepEntrega() {
+        return cepEntrega;
+    }
+
+    public void setCepEntrega(String cepEntrega) {
+        this.cepEntrega = cepEntrega;
+    }
+
+    public String getCidadeEntrega() {
+        return cidadeEntrega;
+    }
+
+    public void setCidadeEntrega(String cidadeEntrega) {
+        this.cidadeEntrega = cidadeEntrega;
+    }
+
+    public String getUfEntrega() {
+        return ufEntrega;
+    }
+
+    public void setUfEntrega(String ufEntrega) {
+        this.ufEntrega = ufEntrega;
+    }
+
+    public String getBairroEntrega() {
+        return bairroEntrega;
+    }
+
+    public void setBairroEntrega(String bairroEntrega) {
+        this.bairroEntrega = bairroEntrega;
+    }
+
+    public String getRuaEntrega() {
+        return ruaEntrega;
+    }
+
+    public void setRuaEntrega(String ruaEntrega) {
+        this.ruaEntrega = ruaEntrega;
+    }
+
+    public String getNumeroEntrega() {
+        return numeroEntrega;
+    }
+
+    public void setNumeroEntrega(String numeroEntrega) {
+        this.numeroEntrega = numeroEntrega;
+    }
+
+    public String getComplementoEntrega() {
+        return complementoEntrega;
+    }
+
+    public void setComplementoEntrega(String complementoEntrega) {
+        this.complementoEntrega = complementoEntrega;
+    }
+
+    public String getpRefEntrega() {
+        return pRefEntrega;
+    }
+
+    public void setpRefEntrega(String pRefEntrega) {
+        this.pRefEntrega = pRefEntrega;
+    }
 
     public int getCodigo() {
         return codigo;
@@ -35,12 +107,12 @@ public class Pedido {
         this.codigoItems = codigoItems;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public void setStatus() {
+        this.status = "P";
     }
 
     public double getValor() {
@@ -59,11 +131,4 @@ public class Pedido {
         this.data = data;
     }
 
-    public String getLocalizacao() {
-        return localizacao;
-    }
-
-    public void setLocalizacao(String localizacao) {
-        this.localizacao = localizacao;
-    }
 }
