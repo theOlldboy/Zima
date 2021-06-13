@@ -23,7 +23,7 @@
                             <table class="table table-striped">
   <thead>
     <tr>
-      <th scope="col">Número do pedido</th>
+      <th scope="col">Número do pedido:</th>
       <th scope="col">Data</th>
       <th scope="col">Valor</th>
       <th scope="col">Status</th>
