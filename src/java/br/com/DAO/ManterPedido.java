@@ -150,7 +150,7 @@ public class ManterPedido extends DAO{
     
       public void deletar(Pedido p) throws Exception{
          abrirBanco();
-         String query = "DELETE * FROM pedido where codigo=?";
+         String query = "DELETE FROM pedido where codigo=?";
          pst=(PreparedStatement) con.prepareStatement(query);
          pst.setInt(1, p.getCodigo());
          pst.execute();
