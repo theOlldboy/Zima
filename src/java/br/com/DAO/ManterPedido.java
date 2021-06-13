@@ -119,6 +119,35 @@ public class ManterPedido extends DAO{
        return listausuarios;
      }
     
+    public ArrayList<Pedido> pesquisarPedidosPorCliente (int codCli) throws Exception {
+       ArrayList<Pedido> listaPedidos = new ArrayList<Pedido>();
+         try{
+         abrirBanco();  
+         String query = "select * FROM pedido where cod_cli=?";
+         pst = con.prepareStatement(query);
+         pst.setInt(1, codCli);
+         ResultSet rs = pst.executeQuery();
+         Pedido p ;
+         while (rs.next()){ 
+           p = new Pedido();
+           p.setCodigo(rs.getInt("codigo"));
+           p.setValor(rs.getDouble("valor"));
+           p.setData(rs.getDate("data"));
+           p.setCepEntrega(rs.getString("cep_entrega"));
+           p.setBairroEntrega(rs.getString("bairro_entrega"));
+           p.setRuaEntrega(rs.getString("rua_entrega"));
+           p.setNumeroEntrega(rs.getString("numero_entrega"));
+           p.setpRefEntrega(rs.getString("pRef_entrega"));
+           p.setStatus(rs.getString("status"));
+           listaPedidos.add(p); 
+         } 
+         fecharBanco();
+       }catch (Exception e){
+           System.out.println("Erro " + e.getMessage());
+     } 
+       return listaPedidos;
+     }
+    
       public void deletar(Pedido p) throws Exception{
          abrirBanco();
          String query = "DELETE * FROM pedido where codigo=?";

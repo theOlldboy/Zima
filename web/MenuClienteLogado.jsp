@@ -95,7 +95,7 @@
                         <a href="paginaPrincipalLoginCliente.jsp">Cardápio</a>
                     </li>
                     <li>
-                        <a href="#">Meus Pedidos</a>
+                        <a href="listagemPedidos.jsp?codigoCli=<%=Integer.valueOf(codigoUsuario)%>">Meus Pedidos</a>
                     </li>
                     <div class="dadosLogados">
                         <li class="emailLogado">

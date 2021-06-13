@@ -23,7 +23,7 @@
             }
             .rodaPe {
                 background-color: #2d2c28;
-                height: 270px;
+                height: 290px;
             }
             
             .listaElementos {
