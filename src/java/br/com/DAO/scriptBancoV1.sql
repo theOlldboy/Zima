@@ -102,7 +102,7 @@ CREATE TABLE `itens_pedido` (
 CREATE TABLE `pagamento` (
   `codigo` int(11) NOT NULL primary key auto_increment,
   `cod_pedido` int(11),
-  `forma` VARCHAR(10),
+  `forma` VARCHAR(20),
   `status` VARCHAR(50) DEFAULT NULL,
   `data` date 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
