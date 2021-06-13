@@ -63,6 +63,7 @@ public class servletFazerPedido extends HttpServlet {
             end = mus.pesquisarEnderecoCliente(codigoDoUsuario);
            
             ped.setStatus("P");
+            ped.setCod_cli(codigoDoUsuario);
             mp.gerarPedido(ped);
             
             ArrayList<Produto> produto = dao.pesquisarTudo();

@@ -13,6 +13,7 @@ import java.sql.Date;
  */
 public class Pedido {
     private int codigo;
+    private int cod_cli;
     private String status;
     private double valor;
     private Date data;
@@ -25,7 +26,13 @@ public class Pedido {
     private String complementoEntrega;
     private String pRefEntrega;
   
+    public int getCod_cli() {
+            return cod_cli;
+    }
 
+    public void setCod_cli(int cod_cli) {
+        this.cod_cli = cod_cli;
+    }
     public String getCepEntrega() {
         return cepEntrega;
     }

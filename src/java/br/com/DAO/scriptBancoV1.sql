@@ -10,6 +10,7 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
+
 DROP DATABASE ZIMA;
 CREATE DATABASE ZIMA;
 USE ZIMA;
@@ -100,10 +101,10 @@ CREATE TABLE `itens_pedido` (
 
 CREATE TABLE `pagamento` (
   `codigo` int(11) NOT NULL primary key auto_increment,
-  `cod_pedido` int(11) NOT NULL,
-  `forma` int(1) NOT NULL,
-  `status` int(11) DEFAULT NULL,
-  `data` date NOT NULL
+  `cod_pedido` int(11),
+  `forma` VARCHAR(10),
+  `status` VARCHAR(50) DEFAULT NULL,
+  `data` date 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -111,9 +112,19 @@ CREATE TABLE `pagamento` (
 --
 -- Estrutura da tabela `pedido`
 --
+CREATE TABLE `usuario` (
+  `codigo` int(11) NOT NULL,
+  `tipo` int(1) NOT NULL,
+  `nome` varchar(50) NOT NULL,
+  `cpf` varchar(11) NOT NULL,
+  `senha` varchar(12) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `telefone` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `pedido` (
   `codigo` int(11) NOT NULL,
+  `cod_cli` int(11) NOT NULL,
   `valor` float DEFAULT NULL,
   `data` date DEFAULT NULL,
   `cep_entrega` varchar(10) DEFAULT NULL,
@@ -162,15 +173,7 @@ INSERT INTO `produto` (`codigo`, `titulo`, `descricao`, `preco`, `img`) VALUES
 -- Estrutura da tabela `usuario`
 --
 
-CREATE TABLE `usuario` (
-  `codigo` int(11) NOT NULL,
-  `tipo` int(1) NOT NULL,
-  `nome` varchar(50) NOT NULL,
-  `cpf` varchar(11) NOT NULL,
-  `senha` varchar(12) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `telefone` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 
 --
 -- Extraindo dados da tabela `usuario`
@@ -280,6 +283,9 @@ ALTER TABLE `itens_pedido`
 --
 ALTER TABLE `pagamento`
   ADD CONSTRAINT `pagamento_ibfk_1` FOREIGN KEY (`cod_pedido`) REFERENCES `pedido` (`codigo`);
+  
+ALTER TABLE `pedido`
+  ADD CONSTRAINT `pedido_ibfk_1` FOREIGN KEY (`cod_cli`) REFERENCES `usuario` (`codigo`);
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 0;

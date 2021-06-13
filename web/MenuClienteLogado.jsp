@@ -95,9 +95,6 @@
                         <a href="paginaPrincipalLoginCliente.jsp">Cardápio</a>
                     </li>
                     <li>
-                        <a href="formFazerPedido.jsp"> Fazer Pedido </a>
-                    </li>
-                    <li>
                         <a href="#">Meus Pedidos</a>
                     </li>
                     <div class="dadosLogados">

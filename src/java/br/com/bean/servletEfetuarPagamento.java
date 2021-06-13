@@ -46,13 +46,13 @@ public class servletEfetuarPagamento extends HttpServlet {
             
             
             ManterPedido mped = new ManterPedido();
-            codPedido = mped.pesquisarPedido();
+            
             ManterPagamento mpag = new ManterPagamento();
             Pagamento pag = new Pagamento();
           
             
             pag.setForma(formaPagamento);
-            pag.setCodPedido(codPedido);
+            pag.setCodPedido(mped.pesquisarPedido());
             pag.setStatusPago();
             mpag.gerarPagamento();
             codPagamento = mpag.pesquisarPagamentoPedido();

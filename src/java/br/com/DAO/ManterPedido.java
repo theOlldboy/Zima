@@ -21,11 +21,12 @@ public class ManterPedido extends DAO{
     public void gerarPedido(Pedido p) throws Exception {
     try {
     abrirBanco();
-    String query = "INSERT INTO pedido(codigo,data,status) "
-            + "values(null,?,?)";
+    String query = "INSERT INTO pedido(codigo,data,status,cod_cli) "
+            + "values(null,?,?,?)";
     pst=(PreparedStatement) con.prepareStatement(query);
     pst.setDate(1, new java.sql.Date(Calendar.getInstance().getTimeInMillis()));
     pst.setString(2, p.getStatus());
+    pst.setInt(3, p.getCod_cli());
     pst.execute();
     fecharBanco();
     } catch (Exception e) {
