@@ -1,19 +1,16 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 12-Jun-2021 às 22:57
--- Versão do servidor: 10.4.18-MariaDB
--- versão do PHP: 8.0.3
+-- Tempo de geração: 15-Jun-2021 às 01:26
+-- Versão do servidor: 10.4.14-MariaDB
+-- versão do PHP: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-DROP DATABASE ZIMA;
-CREATE DATABASE ZIMA;
-USE ZIMA;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -87,12 +84,6 @@ CREATE TABLE `itens_pedido` (
   `qtde_bebida` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Extraindo dados da tabela `itens_pedido`
---
-
-
-
 -- --------------------------------------------------------
 
 --
@@ -100,11 +91,11 @@ CREATE TABLE `itens_pedido` (
 --
 
 CREATE TABLE `pagamento` (
-  `codigo` int(11) NOT NULL primary key auto_increment,
-  `cod_pedido` int(11),
-  `forma` VARCHAR(20),
-  `status` VARCHAR(50) DEFAULT NULL,
-  `data` date 
+  `codigo` int(11) NOT NULL,
+  `cod_pedido` int(11) DEFAULT NULL,
+  `forma` varchar(20) DEFAULT NULL,
+  `status` varchar(50) DEFAULT NULL,
+  `data` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -112,15 +103,6 @@ CREATE TABLE `pagamento` (
 --
 -- Estrutura da tabela `pedido`
 --
-CREATE TABLE `usuario` (
-  `codigo` int(11) NOT NULL,
-  `tipo` int(1) NOT NULL,
-  `nome` varchar(50) NOT NULL,
-  `cpf` varchar(11) NOT NULL,
-  `senha` varchar(12) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `telefone` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `pedido` (
   `codigo` int(11) NOT NULL,
@@ -132,14 +114,9 @@ CREATE TABLE `pedido` (
   `rua_entrega` varchar(50) DEFAULT NULL,
   `numero_entrega` varchar(50) DEFAULT NULL,
   `pRef_entrega` varchar(50) DEFAULT NULL,
-  `status` varchar(1) NOT NULL
+  `status` varchar(1) NOT NULL,
+  `local` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `pedido`
---
-
-
 
 -- --------------------------------------------------------
 
@@ -173,14 +150,22 @@ INSERT INTO `produto` (`codigo`, `titulo`, `descricao`, `preco`, `img`) VALUES
 -- Estrutura da tabela `usuario`
 --
 
-
+CREATE TABLE `usuario` (
+  `codigo` int(11) NOT NULL,
+  `tipo` int(1) NOT NULL,
+  `nome` varchar(50) NOT NULL,
+  `cpf` varchar(11) NOT NULL,
+  `senha` varchar(12) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `telefone` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `usuario`
 --
 
 INSERT INTO `usuario` (`codigo`, `tipo`, `nome`, `cpf`, `senha`, `email`, `telefone`) VALUES
-(1, 0, 'JoÃ£o OtÃ¡vio Lima Felipelli', '07029717155', '33522773', 'joaolima.felipelli@gmail.com', '611999141797'),
+(1, 0, 'JoÃ£o OtÃ¡vio Lima Felipelli', '07029717155', '123456', 'joaolima.felipelli@gmail.com', '611999141797'),
 (2, 0, 'Lulindo', '55555555555', '212330', 'lulindo@gmail.com', '61999156641');
 
 --
@@ -209,12 +194,16 @@ ALTER TABLE `itens_pedido`
 --
 -- Índices para tabela `pagamento`
 --
+ALTER TABLE `pagamento`
+  ADD PRIMARY KEY (`codigo`),
+  ADD KEY `pagamento_ibfk_1` (`cod_pedido`);
 
 --
 -- Índices para tabela `pedido`
 --
 ALTER TABLE `pedido`
-  ADD PRIMARY KEY (`codigo`);
+  ADD PRIMARY KEY (`codigo`),
+  ADD KEY `pedido_ibfk_1` (`cod_cli`);
 
 --
 -- Índices para tabela `usuario`
@@ -242,13 +231,19 @@ ALTER TABLE `endereco`
 -- AUTO_INCREMENT de tabela `itens_pedido`
 --
 ALTER TABLE `itens_pedido`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+
+--
+-- AUTO_INCREMENT de tabela `pagamento`
+--
+ALTER TABLE `pagamento`
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
@@ -276,25 +271,20 @@ ALTER TABLE `endereco`
 -- Limitadores para a tabela `itens_pedido`
 --
 ALTER TABLE `itens_pedido`
-  ADD CONSTRAINT `itens_pedido_ibfk_1` FOREIGN KEY (`cod_pedido`) REFERENCES `pedido` (`codigo`);
+  ADD CONSTRAINT `itens_pedido_ibfk_1` FOREIGN KEY (`cod_pedido`) REFERENCES `pedido` (`codigo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limitadores para a tabela `pagamento`
 --
 ALTER TABLE `pagamento`
-  ADD CONSTRAINT `pagamento_ibfk_1` FOREIGN KEY (`cod_pedido`) REFERENCES `pedido` (`codigo`);
-  
+  ADD CONSTRAINT `pagamento_ibfk_1` FOREIGN KEY (`cod_pedido`) REFERENCES `pedido` (`codigo`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Limitadores para a tabela `pedido`
+--
 ALTER TABLE `pedido`
-  ADD CONSTRAINT `pedido_ibfk_1` FOREIGN KEY (`cod_cli`) REFERENCES `usuario` (`codigo`);
+  ADD CONSTRAINT `pedido_ibfk_1` FOREIGN KEY (`cod_cli`) REFERENCES `usuario` (`codigo`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
-
-SET FOREIGN_KEY_CHECKS = 0;
-
-TRUNCATE pedido;
-TRUNCATE itens_pedido;
-TRUNCATE pagamento;
-
-SET FOREIGN_KEY_CHECKS = 1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
