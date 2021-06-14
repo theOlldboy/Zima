@@ -49,17 +49,18 @@ public class ManterPedido extends DAO{
     }
 	}
     
-    public void preencherEnderecoEntregaPedido(Endereco end, int codUsuario) throws Exception {
+    public void preencherEnderecoEntregaPedido(Endereco end, int codUsuario, String local) throws Exception {
        try {
     abrirBanco();
-    String query = "UPDATE pedido SET cep_entrega=?,bairro_entrega=?,rua_entrega=?,numero_entrega=?,pRef_entrega=? WHERE codigo=?";
+    String query = "UPDATE pedido SET cep_entrega=?,bairro_entrega=?,rua_entrega=?,numero_entrega=?,pRef_entrega=?,local=? WHERE codigo=?";
     pst = con.prepareStatement(query);
     pst.setString(1, end.getCep());
     pst.setString(2, end.getBairro());
     pst.setString(3, end.getRua());
     pst.setString(4, end.getNumero());
     pst.setString(5, end.getpRef());
-    pst.setInt(6, codUsuario);
+    pst.setString(6, local);
+    pst.setInt(7, codUsuario);
     pst.executeUpdate();
     fecharBanco();
 			
