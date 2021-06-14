@@ -85,9 +85,7 @@ public class ManterPedido extends DAO{
             System.out.println("Erro " + e.getMessage());
     }
     return 0;
-	}   
-    
-    
+	} 
     
     //Metodo listar
     
@@ -158,25 +156,25 @@ public class ManterPedido extends DAO{
      }
       
       // metodo de pesquisar por id
-      public Pedido pesquisar(int codigo) throws Exception {
+      public Pedido pesquisarPedidoParaEntrega(int codigoPedido) throws Exception {
     try {
             Pedido p = new Pedido();
             //System.out.println(" Chegou no pesquisar registo" + id);
             abrirBanco();
             String query = "select * FROM pedido where codigo=?";
             pst = con.prepareStatement(query);
-            pst.setInt(1, codigo);
+            pst.setInt(1, codigoPedido);
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
-           p.setCodigo(rs.getInt("codigo"));
-           p.setValor(rs.getDouble("valor"));
-           p.setData(rs.getDate("data"));
-           p.setCepEntrega(rs.getString("cep_entrega"));
-           p.setBairroEntrega(rs.getString("bairro_entrega"));
-           p.setRuaEntrega(rs.getString("rua_entrega"));
-           p.setNumeroEntrega(rs.getString("numero_entrega"));
-           p.setpRefEntrega(rs.getString("pRef_entrega"));
-           p.setStatus(rs.getString("status"));
+            p.setCodigo(rs.getInt("codigo"));
+            p.setValor(rs.getDouble("valor"));
+            p.setData(rs.getDate("data"));
+            p.setCepEntrega(rs.getString("cep_entrega"));
+            p.setBairroEntrega(rs.getString("bairro_entrega"));
+            p.setRuaEntrega(rs.getString("rua_entrega"));
+            p.setNumeroEntrega(rs.getString("numero_entrega"));
+            p.setpRefEntrega(rs.getString("pRef_entrega"));
+            p.setStatus(rs.getString("status"));
             return p;
             }
             fecharBanco();

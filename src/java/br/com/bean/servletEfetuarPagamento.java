@@ -46,7 +46,7 @@ public class servletEfetuarPagamento extends HttpServlet {
             
             
             ManterPedido mped = new ManterPedido();
-            
+            codPedido = mped.pesquisarPedido();
             ManterPagamento mpag = new ManterPagamento();
             Pagamento pag = new Pagamento();
           
@@ -57,6 +57,7 @@ public class servletEfetuarPagamento extends HttpServlet {
             mpag.gerarPagamento();
             codPagamento = mpag.pesquisarPagamentoPedido();
             mpag.preencherPagamento(pag, codPagamento);
+            
             
             RequestDispatcher rd = request.getRequestDispatcher("paginaPrincipalLoginCliente.jsp");
             rd.forward(request, response);
