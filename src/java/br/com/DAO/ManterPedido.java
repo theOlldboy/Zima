@@ -168,6 +168,7 @@ public class ManterPedido extends DAO{
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
             p.setCodigo(rs.getInt("codigo"));
+            p.setCod_cli(rs.getInt("cod_cli"));
             p.setValor(rs.getDouble("valor"));
             p.setData(rs.getDate("data"));
             p.setCepEntrega(rs.getString("cep_entrega"));

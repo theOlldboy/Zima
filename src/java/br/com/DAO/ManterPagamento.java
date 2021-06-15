@@ -66,5 +66,26 @@ public class ManterPagamento extends DAO {
     }
     return 0;
 	}
-    
-}
+
+    public Pagamento pesquisarPagamento(int codigoPedido) {
+            try {
+            Pagamento pg = new Pagamento();
+            abrirBanco();
+            String query = "select * FROM pagamento where cod_pedido=?";
+            pst = con.prepareStatement(query);
+            pst.setInt(1, codigoPedido);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                pg.setCodigo(rs.getInt("codigo"));
+                pg.setForma(rs.getString("forma"));
+                pg.setData(rs.getDate("data"));
+                pg.setStatusPago();
+                return pg;
+            }
+            fecharBanco();
+    } catch (Exception e) {
+            System.out.println("Erro " + e.getMessage());
+    }
+    return null;
+	}
+    }

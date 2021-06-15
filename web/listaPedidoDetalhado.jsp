@@ -22,70 +22,65 @@
                             <table class="table table-striped">
   <thead>
       <%
-            //Declarando dados da Tabela Pedido
-            String vcodigo="";
-            String vcodigoCli="";
-            String vvalor="";
-            String vdata="";
-            String vcep="";
-            String vbairro="";
-            String vrua="";
-            String vnumero="";
-            String vref="";
-            String vstatus="";
+            //Recebendo dados da Tabela Pedido
+            String vcodigo=String.valueOf(request.getParameter("codigoPed"));
+            String vcodigoCli=String.valueOf(request.getAttribute("codigoCli"));
+            String vvalor=String.valueOf(request.getAttribute("valor"));
+            String vdata=String.valueOf(request.getAttribute("data"));
+            String vcep=String.valueOf(request.getAttribute("cep"));
+            String vbairro=String.valueOf(request.getAttribute("bairro"));
+            String vrua=String.valueOf(request.getAttribute("rua"));
+            String vnumero=String.valueOf(request.getAttribute("numero"));
+            String vref=String.valueOf(request.getAttribute("pRef"));
+            String vstatus=String.valueOf(request.getAttribute("status"));
+            String vlocal=String.valueOf(request.getAttribute("local"));
             
-            //Declarando dados da Tabela Cliente
-            String vnome="";
+            //Recebendo dados da Tabela Cliente
+            String vnome=String.valueOf(request.getAttribute("nome"));
             
-            //Declarando dados da Tabela Itens Pedido
-            String vitem="";
-            String vqtd="";
-            String vbebida="";
-            String vqtdbebida="";
-            //Declarando dados da Tabela Produto
-            String vtitulo="";
-            String vpreco="";
-            //Declarando dados da Tabela Pagamento
-            String vforma="";
-            String vstatusPag="";
+            //Recebendo dados da Tabela Itens Pedido
+            String viditem=String.valueOf(request.getAttribute("id_item"));
+            String vqtd=String.valueOf(request.getAttribute("qtde"));
+            String vbebida=String.valueOf(request.getAttribute("tipo_bebida"));
+            String vqtdbebida=String.valueOf(request.getAttribute("qtde_bebida"));
             
-            ManterPedido dao = new ManterPedido();
-            Pedido p = new Pedido();
+            //Recebendo dados da Tabela Produto
+            String vtitulo=String.valueOf(request.getAttribute("titulo"));
             
-            ArrayList<Pedido> pedido = dao.pesquisarTudo();
-            for (int i = 0; i < pedido.size(); i++) {
-                p = pedido.get(i);
-                vcodigo=String.valueOf(p.getCodigo());
-                vcodigoCli=String.valueOf(p.getCod_cli());
-                vvalor=String.valueOf(p.getValor());
-                vdata=String.valueOf(p.getData());
-                vcep=String.valueOf(p.getCepEntrega());
-                vbairro=String.valueOf(p.getBairroEntrega());
-                vrua=String.valueOf(p.getRuaEntrega());
-                vnumero=String.valueOf(p.getNumeroEntrega());
-                vref=String.valueOf(p.getpRefEntrega());
-                vstatus=String.valueOf(p.getStatus());
+            //Recebendo dados da Tabela Pagamento
+            String vforma=String.valueOf(request.getAttribute("forma"));
+            String vstatusPag=String.valueOf(request.getAttribute("status"));
+           
             %>
     <tr>
       <th scope="col">Número do pedido: <%=vcodigo%></th>
+      <th scope="col">Cliente: <%=vnome%></td>
       <th scope="col">Data: <%=vdata%></th>
-      <th scope="col">Valor: <%=vvalor%></th>
-      <th scope="col">Status: <%=vstatus%></th>
+      <td>Valor: <%=vvalor%></td>
+      <td>Status: <%=vstatus%></td>
     </tr>
   </thead>
             <tr>
-                <td><h4>Endereço de entrega:</h4></td>
+              <td><h4>Endereço de entrega:</h4></td>
               <td>Cep: <%=vcep%></td>
-              <td></td>
               <td>Bairro: <%=vbairro%></td>
               <td>Rua: <%=vrua%></td>
               <td>Número: <%=vnumero%></td>
               <td>Ponto de Referência: <%=vref%></td>
+              <td>Localização: <%=vlocal%></td>
+            </tr>
+            <tr>
+                <td>Item: <%=vtitulo%></td>
+                <td>QTD: <%=vqtd%></td>
+                <td>Bebida: <%=vbebida%></td>
+                <td>QTD Bebida: <%=vqtdbebida%></td>
+            </tr>
+            <tr>
+                <td>Forma de pagamento: <%=vforma%></td>
+                <td>Status: <%=vstatus%></td>
             </tr>
                            </div>
                 </div>
-                        <% }
-                        %>
                     </div>
                 </div>
             </div>

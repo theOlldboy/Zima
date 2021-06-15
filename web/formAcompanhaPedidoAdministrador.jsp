@@ -12,7 +12,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Editar Produtos</title>
+        <title>Acompanhamento de Pedidos</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     </head>
@@ -27,6 +27,7 @@
       <th scope="col">Data</th>
       <th scope="col">Valor</th>
       <th scope="col">Status</th>
+      <th scope="col"></th>
       <th scope="col"></th>
       <th scope="col"></th>
     </tr>
@@ -73,6 +74,7 @@
               <td>
                    <a class="btn btn-danger" href="DeletaPedido?codigo=<%=vcodigo%>" onclick="return confirm('Confirma exclusão do pedido <%=vcodigo%>?')">Excluir</a>   
               </td>
+              <td><a class="btn btn-info" href="buscaPedidoDetalhado?codigoPed=<%=vcodigo%>">Detalhes</a></td>
             </tr>
             </form>
                             </div>

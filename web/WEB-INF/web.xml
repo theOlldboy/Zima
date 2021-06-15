@@ -44,6 +44,10 @@
         <servlet-name>servletBuscarPedidos</servlet-name>
         <servlet-class>br.com.bean.servletBuscarPedidos</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>buscaPedidoDetalhado</servlet-name>
+        <servlet-class>br.com.bean.buscaPedidoDetalhado</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>servletCadastrarClientes</servlet-name>
         <url-pattern>/CadastroClientesZima</url-pattern>
@@ -87,5 +91,9 @@
     <servlet-mapping>
         <servlet-name>servletBuscarPedidos</servlet-name>
         <url-pattern>/BuscarPedidos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>buscaPedidoDetalhado</servlet-name>
+        <url-pattern>/buscaPedidoDetalhado</url-pattern>
     </servlet-mapping>
 </web-app>
