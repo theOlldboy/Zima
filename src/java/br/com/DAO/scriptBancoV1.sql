@@ -116,7 +116,7 @@ CREATE TABLE `usuario` (
   `codigo` int(11) NOT NULL,
   `tipo` int(1) NOT NULL,
   `nome` varchar(50) NOT NULL,
-  `cpf` varchar(11) NOT NULL,
+  `cpf` varchar(20) NOT NULL,
   `senha` varchar(12) NOT NULL,
   `email` varchar(50) NOT NULL,
   `telefone` varchar(20) NOT NULL
@@ -292,6 +292,9 @@ SET FOREIGN_KEY_CHECKS = 0;
 
 TRUNCATE pedido;
 TRUNCATE itens_pedido;
+TRUNCATE usuario;
+TRUNCATE endereco;
+TRUNCATE cartao;
 TRUNCATE pagamento;
 
 SET FOREIGN_KEY_CHECKS = 1;

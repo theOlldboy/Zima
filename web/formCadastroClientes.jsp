@@ -16,6 +16,17 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+        <script>
+            $(document).ready(function () { 
+                var $seuCampoCpf = $("#CPF");
+                var $seuCampotelefone = $("#telefone");
+                
+                $seuCampoCpf.mask('000.000.000-00', {reverse: true});
+                $seuCampotelefone.mask('(00)0000-0000', {reverse:true});
+            });
+        </script>
         <style>
             body {
                 background-color:#798b52;
@@ -94,42 +105,7 @@
         <script>
             //Códigos StackOvwerflow
             
-            function validarCPF(cpf) {	
-                cpf = cpf.replace(/[^\d]+/g,'');	
-                if(cpf === '') return false;	
-                // Elimina CPFs invalidos conhecidos	
-                if (cpf.length !== 11 || 
-                        cpf === "00000000000" || 
-                        cpf === "11111111111" || 
-                        cpf === "22222222222" || 
-                        cpf === "33333333333" || 
-                        cpf === "44444444444" || 
-                        cpf === "55555555555" || 
-                        cpf === "66666666666" || 
-                        cpf === "77777777777" || 
-                        cpf === "88888888888" || 
-                        cpf === "99999999999")
-                                return false;		
-                // Valida 1o digito	
-                add = 0;	
-                for (i=0; i < 9; i ++)		
-                        add += parseInt(cpf.charAt(i)) * (10 - i);	
-                        rev = 11 - (add % 11);	
-                        if (rev === 10 || rev === 11)		
-                                rev = 0;	
-                        if (rev !== parseInt(cpf.charAt(9)))		
-                                return false;		
-                // Valida 2o digito	
-                add = 0;	
-                for (i = 0; i < 10; i ++)		
-                        add += parseInt(cpf.charAt(i)) * (11 - i);	
-                rev = 11 - (add % 11);	
-                if (rev === 10 || rev === 11)	
-                        rev = 0;	
-                if (rev !== parseInt(cpf.charAt(10)))
-                        return false;		
-                return true;   
-            }
+
             
             //Códigos baseados na w3schools
             
@@ -184,6 +160,7 @@
                 }
             }
         
+        
     function pesquisacep(valor) {
 
         //Nova variável "cep" somente com dígitos.
@@ -203,6 +180,9 @@
                 document.getElementById('bairro').value="...";
                 document.getElementById('cidade').value="...";
                 document.getElementById('uf').value="...";
+                document.getElementById('cep').value = cep.substring(0,5)
+                +"-"
+                +cep.substring(5);
 
                 //Cria um elemento javascript.
                 var script = document.createElement('script');
@@ -231,7 +211,8 @@
                 alert("E-mail já cadastrado na base de dados. Por favor, informe um e-mail diferente")
             }
         }
-        </script>
+        
+    </script>
     </head>
     <%@include file="MenuPrincipal.jsp"%> <br/>
     <body>
@@ -249,13 +230,13 @@
                         <label> Nome: </label>
                         <input type="text" placeholder="Nome" size="30" maxlength="60" name="nomeCliente"> 
                         <label> CPF: </label>
-                        <input type="text" placeholder="CPF" id="cpfDigitado" maxlength="11" size="44px" name="cpf" onblur="validarCPF()"> <br/>
+                        <input type="text" placeholder="CPF" id="CPF" maxlength="14" size="44px" name="cpf" onblur="mascaraCpf()"> <br/>
                         <label> E-mail: </label>
                         <input type="text" placeholder="E-mail" maxlength="60" size="28px" name="emailCliente"> 
                         <label> Senha: </label>
                         <input type="password" placeholder="Senha" maxlength="30" size="42px" name="senha"> <br/>
                         <label> Telefone: </label>
-                        <input type="text" placeholder="Telefone" size="27px" name="telefone"> 
+                        <input type="text" placeholder="Telefone" size="27px" id="telefone" name="telefone"> 
                     </div>
                     <br/>
                     <h2 class="fonte"> Dados do Cartão <button type="button" class="btn btn-outline-secondary botaoEsconder" onclick="esconderMostrarDadosFinanceiros()">
@@ -266,7 +247,7 @@
                         <label>  Titular do cartão: </label>
                         <input type="text" placeholder="Titular do cartão" size="70" name="titularCartao"> <br/>
                         <label> Número do Cartão: </label>
-                        <input type="text" placeholder="Número do cartão" size="36px" name="numeroCartao"> 
+                        <input type="text" placeholder="Número do cartão" size="36px" id="numeroCartao" name="numeroCartao"> 
                         <label> Código de verificação: </label> 
                         <input type="text" placeholder="CVV" size="10px" name="cvv"> <br/>
                         <label for="validadeCartao"> Data de validade: </label>
