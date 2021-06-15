@@ -65,6 +65,21 @@
             }
         </style>
         <script>
+            //Função que captura coordenadas
+
+            function getLocation() {
+              if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(setPosition);
+              } else {
+                alert("Geolocation is not supported by this browser.");
+              }
+            }
+
+            function setPosition(position) {
+              var lat = position.coords.latitude;
+              var long = position.coords.longitude;
+            }
+           
             //Códigos feitos pela ViaCEP
             function limpa_formulário_cep() {
             //Limpa valores do formulário de cep.
@@ -171,10 +186,12 @@
                             <label> Ponto de Referência: </label>
                             <input type="text" placeholder="Ponto de Referência" size="67px" name="pontoReferenciaEntrega" value="<%=pRef%>"> <br/> <br/>
                             <input type="hidden" name="codUsuario" value="<%=codigoUsuarioLogin%>">
+                            <input type="text" name="local" value="Ver se o Local chegou aqui!" />
 <button type="submit" class="botaoFazerPedido">Próximo <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
   <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
 </svg></button>
                         </form>
+                        <button onclick="getLocation()">Localização Atual</button>
                     </div>
                 </div>
             </div> <br/> <br/> <br/> <br/> <br/> <br/><br/> <br/> 

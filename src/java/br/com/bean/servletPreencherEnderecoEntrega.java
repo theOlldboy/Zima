@@ -55,6 +55,7 @@ public class servletPreencherEnderecoEntrega extends HttpServlet {
            String numeroEndereco = request.getParameter("numeroEnderecoEntrega");
            String complemento = request.getParameter("complementoEntrega");
            String pontoReferencia = request.getParameter("pontoReferenciaEntrega");
+           String local = request.getParameter("local");
            
            end.setCep(cep);
            end.setRua(rua);
@@ -62,7 +63,7 @@ public class servletPreencherEnderecoEntrega extends HttpServlet {
            end.setNumero(numeroEndereco);
            end.setpRef(pontoReferencia);
            
-           mp.preencherEnderecoEntregaPedido(end, codPedido);
+           mp.preencherEnderecoEntregaPedido(end, codPedido, local);
            
            card = mus.pesquisarDadosCartaoCliente(codigoDoUsuario);
             
