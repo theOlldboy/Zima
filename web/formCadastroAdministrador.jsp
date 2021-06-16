@@ -61,6 +61,7 @@
         </script>
     </head>
     <body>
+        <%@include file="MenuAdministrador.jsp"%>
         <div class="jumbotron jumbotron-fluid jumbotromMeu">
             <div class="container fundoJumbotron">
                 <form action="CadastroAdm" method="POST">

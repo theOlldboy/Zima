@@ -76,8 +76,8 @@
         </style>
     <body>
         <%
-            String emailLogado = (String) String.valueOf(session.getAttribute("email"));
-            String codigoUsuario = (String) String.valueOf(session.getAttribute("codigoUsuario"));
+            //String emailLogado = (String) String.valueOf(session.getAttribute("email"));
+            //String codigoUsuario = (String) String.valueOf(session.getAttribute("codigoUsuario"));
             
         %>
         <header class="cabecalho">
@@ -89,18 +89,11 @@
             <nav class="menu">
                 <ul>
                     <li>
-                        <a href="BuscarDados?codigo=<%=Integer.valueOf(codigoUsuario)%>">Perfil</a>
-                    </li>
-                    <li>
                         <a href="formAlteraProduto.jsp">Cardápio</a>
                     </li>
                     <li>
-                        <a href="listagemPedidos.jsp?codigoCli=<%=Integer.valueOf(codigoUsuario)%>">Meus Pedidos</a>
+                        <a href="formAcompanhaPedidoAdministrador.jsp">Pedidos</a>
                     </li>
-                    <div class="dadosLogados">
-                        <li class="emailLogado">
-                            <%=emailLogado%>
-                        </li>
                         <li>
                             <a href="logout.jsp"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-door-open" viewBox="0 0 16 16">
                                             <path d="M8.5 10c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"/>
