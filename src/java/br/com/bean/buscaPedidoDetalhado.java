@@ -17,6 +17,7 @@ import br.com.entidade.Produto;
 import br.com.entidade.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -48,10 +49,10 @@ public class buscaPedidoDetalhado extends HttpServlet {
             int codigoPedido = Integer.valueOf(request.getParameter("codigoPed"));
             
             Usuario us = new Usuario();
-            ItemPedido ip = new ItemPedido();
+//            ItemPedido ip = new ItemPedido();
             Pagamento pg = new Pagamento();
             Pedido ped = new Pedido();
-            Produto prod = new Produto();
+//            Produto produto = new Produto();
             
             ManterPedido daoped = new ManterPedido();
       
@@ -72,18 +73,18 @@ public class buscaPedidoDetalhado extends HttpServlet {
             us = daous.pesquisarDadosPessoaisCliente(id);
             request.setAttribute("nome", us.getNome());
             
-            ManterItensPedido daoip = new ManterItensPedido();
-            ip = daoip.pesquisarPorPedido(codigoPedido);
-            request.setAttribute("id_item",ip.getId_item());
-            request.setAttribute("cod_produto",ip.getCod_produto());
-            request.setAttribute("qtde",ip.getQtde());
-            request.setAttribute("tipo_bebida",ip.getBebida());
-            request.setAttribute("qtde_bebida",ip.getQtdeBebida());
+//            ManterItensPedido daoip = new ManterItensPedido();
+//            ip = daoip.pesquisarPorPedido(codigoPedido);
+//            request.setAttribute("id_item",ip.getId_item());
+//            request.setAttribute("cod_produto",ip.getCod_produto());
+//            request.setAttribute("qtde",ip.getQtde());
+//            request.setAttribute("tipo_bebida",ip.getBebida());
+//            request.setAttribute("qtde_bebida",ip.getQtdeBebida());
             
-            int codigo = ip.getCod_produto();
-            ManterProduto daoprod = new ManterProduto();
-            prod = daoprod.pesquisar(codigo);
-            request.setAttribute("titulo", prod.getTitulo());
+//            int codigo = ip.getCod_produto();
+//            ManterProduto daoprod = new ManterProduto();
+//            produto = daoprod.pesquisar(codigo);
+//            request.setAttribute("titulo", produto.getTitulo());
             
             ManterPagamento daopg = new ManterPagamento();
             pg = daopg.pesquisarPagamento(codigoPedido);

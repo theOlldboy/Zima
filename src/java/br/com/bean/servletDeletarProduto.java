@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Mathe
  */
-public class servletAlterarProduto extends HttpServlet {
+public class servletDeletarProduto extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,21 +37,11 @@ public class servletAlterarProduto extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String vtitulo= request.getParameter("titulo") ;
-            String vdescricao= request.getParameter("descricao");
-            Double vpreco = Double.valueOf(request.getParameter("preco"));
-            String vimg = request.getParameter("img");
-            int vcodigo = Integer.valueOf(request.getParameter("codigo"));
-            
+            int vcod = Integer.valueOf(request.getParameter("codigo"));
             Produto p = new Produto();
-            p.setCodigo(vcodigo);
-            p.setTitulo(vtitulo);
-            p.setDescricao(vdescricao);
-            p.setPreco(vpreco);
-            p.setImg(vimg);
-            
+            p.setCodigo(vcod);
             ManterProduto dao = new ManterProduto();
-            dao.alterar(p);
+            dao.deletar(p);
             
             RequestDispatcher rd = request.getRequestDispatcher("formAlteraProduto.jsp");
             rd.forward(request, response);
@@ -73,7 +63,7 @@ public class servletAlterarProduto extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(servletAlterarProduto.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(servletDeletarProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -91,7 +81,7 @@ public class servletAlterarProduto extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(servletAlterarProduto.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(servletDeletarProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

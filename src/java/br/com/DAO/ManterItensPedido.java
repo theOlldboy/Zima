@@ -8,6 +8,7 @@ package br.com.DAO;
 import br.com.entidade.ItemPedido;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 /**
@@ -56,6 +57,31 @@ public class ManterItensPedido extends DAO {
             System.out.println("Erro " + e.getMessage());
     }
     return null;
-	}   
+	}
+          
+              public ArrayList<ItemPedido> pesquisarTudo (int codigoPed) throws Exception {
+       ArrayList<ItemPedido> listaitens = new ArrayList<ItemPedido>();
+         try{
+         abrirBanco();  
+         String query = "select * FROM itens_pedido where cod_pedido=?";
+         pst = con.prepareStatement(query);
+         pst.setInt(1, codigoPed);
+         ResultSet rs = pst.executeQuery();
+         ItemPedido ip ;
+         while (rs.next()){ 
+           ip = new ItemPedido();
+           ip.setId_item(rs.getInt("id_item"));
+           ip.setCod_produto(rs.getInt("cod_produto"));
+           ip.setQtde(rs.getInt("qtde"));
+           ip.setBebida(rs.getString("tipo_bebida"));
+           ip.setQtdeBebida(rs.getInt("qtde_bebida"));
+           listaitens.add(ip); 
+         } 
+         fecharBanco();
+       }catch (Exception e){
+           System.out.println("Erro " + e.getMessage());
+     } 
+       return listaitens;
+     }
 }
     

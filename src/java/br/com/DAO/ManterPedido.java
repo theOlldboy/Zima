@@ -177,6 +177,7 @@ public class ManterPedido extends DAO{
             p.setNumeroEntrega(rs.getString("numero_entrega"));
             p.setpRefEntrega(rs.getString("pRef_entrega"));
             p.setStatus(rs.getString("status"));
+            p.setLocal(rs.getString("local"));
             return p;
             }
             fecharBanco();

@@ -4,6 +4,10 @@
     Author     : Mathe
 --%>
 
+<%@page import="br.com.entidade.Produto"%>
+<%@page import="br.com.DAO.ManterProduto"%>
+<%@page import="br.com.entidade.ItemPedido"%>
+<%@page import="br.com.DAO.ManterItensPedido"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="br.com.entidade.Pedido"%>
 <%@page import="br.com.DAO.ManterPedido"%>
@@ -40,13 +44,13 @@
             String vnome=String.valueOf(request.getAttribute("nome"));
             
             //Recebendo dados da Tabela Itens Pedido
-            String viditem=String.valueOf(request.getAttribute("id_item"));
-            String vqtd=String.valueOf(request.getAttribute("qtde"));
-            String vbebida=String.valueOf(request.getAttribute("tipo_bebida"));
-            String vqtdbebida=String.valueOf(request.getAttribute("qtde_bebida"));
+//            String viditem=String.valueOf(request.getAttribute("id_item"));
+//            String vqtd=String.valueOf(request.getAttribute("qtde"));
+//            String vbebida=String.valueOf(request.getAttribute("tipo_bebida"));
+//            String vqtdbebida=String.valueOf(request.getAttribute("qtde_bebida"));
             
             //Recebendo dados da Tabela Produto
-            String vtitulo=String.valueOf(request.getAttribute("titulo"));
+//            String vtitulo=String.valueOf(request.getAttribute("titulo"));
             
             //Recebendo dados da Tabela Pagamento
             String vforma=String.valueOf(request.getAttribute("forma"));
@@ -70,12 +74,31 @@
               <td>Ponto de Referência: <%=vref%></td>
               <td>Localização: <%=vlocal%></td>
             </tr>
+            <%
+                int codigoPedido = Integer.valueOf(request.getParameter("codigoPed")) ;
+                
+                Produto prod = new Produto();
+                ManterProduto daoprod = new ManterProduto();
+                ItemPedido ip = new ItemPedido();
+                ManterItensPedido daoip = new ManterItensPedido();
+                ArrayList<ItemPedido> itens = daoip.pesquisarTudo(codigoPedido);
+                for (int i = 0; i < itens.size(); i++) {
+                    ip = itens.get(i);
+                                int codigo = ip.getCod_produto();
+                                prod = daoprod.pesquisar(codigo);
+                                String vtitulo=String.valueOf(prod.getTitulo());
+                    String vqtd=String.valueOf(ip.getQtde());
+                    String vbebida=String.valueOf(ip.getBebida());
+                    String vqtdbebida=String.valueOf(ip.getQtdeBebida());
+                
+            %>
             <tr>
                 <td>Item: <%=vtitulo%></td>
                 <td>QTD: <%=vqtd%></td>
                 <td>Bebida: <%=vbebida%></td>
                 <td>QTD Bebida: <%=vqtdbebida%></td>
             </tr>
+            <%}%>
             <tr>
                 <td>Forma de pagamento: <%=vforma%></td>
                 <td>Status: <%=vstatus%></td>

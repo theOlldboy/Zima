@@ -52,11 +52,11 @@
                             </div>
                             <div class="form-group">
                                 <label for= nome>Preço:</label>
-                                <input type="text" class="form-control" name="valor" value="<%=vpreco%>">
+                                <input type="text" class="form-control" name="preco" value="<%=vpreco%>">
                             </div>
                             <div class="form-group">
                                 <label for= nome>Imagem de Referência:</label>
-                                <input type="text" class="form-control" name="valor" value="<%=vimg%>">
+                                <input type="text" class="form-control" name="img" value="<%=vimg%>">
                             </div>
                             <button type="submit" class="btn btn-block btn-primary">Alterar</button>
                             <a class="btn btn-block btn-danger" href="DeletaProduto?codigo=<%=vcodigo%>" onclick="return confirm('Confirma exclusão do registro <%=vtitulo%>?')">Excluir</a>
