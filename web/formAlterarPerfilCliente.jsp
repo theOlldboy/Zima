@@ -13,6 +13,18 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+        <script>
+            $(document).ready(function () { 
+                var $seuCampoCpf = $("#CPF");
+                //var $seuCampotelefone = $("#telefone");
+                
+                $seuCampoCpf.mask('000.000.000-00', {reverse: true});
+                //$seuCampotelefone.mask('(00)0000-0000', {reverse:true});
+            });
+        </script>
+        
         <style>
             body {
                 background-color:#798b52;

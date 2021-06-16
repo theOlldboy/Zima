@@ -21,10 +21,10 @@
         <script>
             $(document).ready(function () { 
                 var $seuCampoCpf = $("#CPF");
-                var $seuCampotelefone = $("#telefone");
+                //var $seuCampotelefone = $("#telefone");
                 
                 $seuCampoCpf.mask('000.000.000-00', {reverse: true});
-                $seuCampotelefone.mask('(00)0000-0000', {reverse:true});
+                //$seuCampotelefone.mask('(00)0000-0000', {reverse:true});
             });
         </script>
         <style>
