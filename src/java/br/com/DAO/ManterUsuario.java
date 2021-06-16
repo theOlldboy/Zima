@@ -101,11 +101,11 @@ public class ManterUsuario extends DAO {
             pst.setInt(1, id);
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
-                //us.setCodigo(rs.getInt("codigo"));
+                us.setCodigo(rs.getInt("codigo"));
                 us.setNome(rs.getString("nome"));
-                //us.setSenha(rs.getString("senha"));
-                //us.setEmail(rs.getString("email"));
-                //us.setTelefone(rs.getString("telefone"));
+                us.setSenha(rs.getString("senha"));
+                us.setEmail(rs.getString("email"));
+                us.setTelefone(rs.getString("telefone"));
                 return us;
             }
             fecharBanco();

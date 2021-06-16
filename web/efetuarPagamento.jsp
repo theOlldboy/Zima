@@ -23,7 +23,16 @@
                background-color:#798b52;
 ;              margin-left: 350px;
             }
-        
+            
+            .botaoOutroCartao {
+                width:247px;
+                background-color:#dfb649;
+                color: #2d2c28;
+                font-family: 'Nanum Brush Script', cursive;
+                border-radius: 20px;
+                border: none;
+                box-shadow: 3px  3px #2d2c28;
+            }
             .jumbotromMeu {
                 background-color:#798b52;
                 size: 450px;
@@ -113,12 +122,12 @@
                         <label> Código de verificação: </label> 
                         <input type="text" id="cvv" placeholder="CVV" size="10px" name="cvvAlterado" value="<%=cvv%>"> <br/>
                         <label for="validadeCartao"> Data de validade: </label>
-                        <input type="date" placeholder="Data de validade" id ="validadeCartao" name="validadeCartaoAlterado" value="<%=dataValidade%>"> <br/>
-                        <button onclick="limparCamposCartao(); return false;"> Usar Outro Cartão </button>
+                        <input type="date" placeholder="Data de validade" id ="validadeCartao" name="validadeCartaoAlterado" value="<%=dataValidade%>"> <br/> <br/>
+                        <button class="botaoOutroCartao"onclick="limparCamposCartao(); return false;"> Usar Outro Cartão </button>
                         
                     <h2 class="fonte"> Pix </h2> <input type="radio" id="pix" name="formaPagamento" value="Pix"> </br>    
                         <div class="imgPix"> 
-                            <img src="" width="300" height="300px"> 
+                            <img src="qrcode.png" width="300" height="300px"> 
                         </div>
                         
                     </div> <br/> <br/>
