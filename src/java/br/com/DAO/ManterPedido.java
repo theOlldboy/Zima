@@ -18,6 +18,7 @@ import java.util.Calendar;
  * @author Mathe
  */
 public class ManterPedido extends DAO{
+
     public void gerarPedido(Pedido p) throws Exception {
     try {
     abrirBanco();
